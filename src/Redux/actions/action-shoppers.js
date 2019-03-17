@@ -1,10 +1,10 @@
-const createNewUser = (shopperObj) => ({
-	type: 'CREATE_NEW_USER',
+const createNewShopper = (shopperObj) => ({
+	type: 'CREATE_NEW_SHOPPER',
 	payload: shopperObj
 })
 
 export const postNewUser = (username, password, email) => {
-	console.log("Hello");
+	console.log("username:", username, "password:", password, "email", email);
 	return dispatch => {
 		fetch('http://localhost:3000/api/v1/login', {
 			method: "POST",
@@ -17,11 +17,14 @@ export const postNewUser = (username, password, email) => {
 
 		})
 		.then(response => response.json())
-		.then(result => console.log(result))
-		.catch(error => console.log(error));
+		.then(data => {
+        localStorage.setItem("token", data.jwt);
+				return dispatch(createNewShopper(data.shopper))
+      })
+		.catch(error => console.log("err", error));
 
 
 
 	}
+	console.log("Bye");
 }
-// dispatch(createNewUser(result.shopper))

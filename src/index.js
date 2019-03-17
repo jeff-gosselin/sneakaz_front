@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import App from './App';
+import App from './components/App';
 import thunk from 'redux-thunk'
-
-// Creates store
 import {createStore, applyMiddleware} from 'redux';
-import {userLoginReducer} from './Redux/reducers'
-
-// Allows React to ackowledge store
 import {Provider} from 'react-redux';
-const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+import allReducers from './Redux/reducers/combinedReducer'
 
-const store = createStore(userLoginReducer, applyMiddleware(thunk)) // eventually change to a rootReducer to combine reducers
+// const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+
+
+
+const store = createStore(allReducers, applyMiddleware(thunk));
 console.log(store.getState());
 
 

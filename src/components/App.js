@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import './css/App.css';
-import SneakerContainer from './containers/SneakerContainer'
-import Login from './components/Login'
+import '../css/App.css';
+import Login from '../containers/Login'
+import Sneakers from '../containers/Sneakers'
 
 class App extends Component {
   render() {
     return (
 			<div>
 				<Login />
+				<Sneakers />
 			</div>
     );
   }
