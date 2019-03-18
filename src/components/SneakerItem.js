@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import '../css/sneakers.css';
 
 class SneakerItem extends Component {
 	render() {
-		console.log("sneaker item:",this.props);
+		const {name, brand, category, price, image, id} = this.props.sneaker;
+		const images = require.context('../images/sneakers', true);
 		return (
-			<div>
-				<h2>{this.props.sneaker}</h2>
-				<img src={require('../images/sneakers/adidas/test01.jpg')} alt="" />
+			<div className="sneaker-card">
+				<h2>{name}</h2>
+				<p>{category}</p>
+				<p>{price}</p>
+				<Link to={`/sneakers/${id}`}>
+					<img className={`sneaker-image-${this.props.itemSize}`} src={images(`./${brand}/${image}`)} alt="" />
+				</Link>
 
 			</div>
 		)

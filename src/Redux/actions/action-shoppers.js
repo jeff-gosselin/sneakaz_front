@@ -3,7 +3,7 @@ const createNewShopper = (shopperObj) => ({
 	payload: shopperObj
 })
 
-export const postNewUser = (username, password, email) => {
+export const postNewShopper = (username, password, email) => {
 	console.log("username:", username, "password:", password, "email", email);
 	return dispatch => {
 		fetch('http://localhost:3000/api/v1/login', {
@@ -26,5 +26,4 @@ export const postNewUser = (username, password, email) => {
 
 
 	}
-	console.log("Bye");
 }

@@ -1,0 +1,29 @@
+.sneaker-image-small {
+	width: 300px;
+	height: auto;
+}
+
+.sneaker-image-large {
+	width: 75%;
+	height: auto;
+}
+
+.sneaker-image-small:hover {
+	width: 300px;
+	height: auto;
+	background: rgba(0,225,255,.1);
+}
+
+.sneaker-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+}
+
+.sneaker-card {
+	flex: 1;
+	flex-basis: 30%;
+	background-color: #fff;
+
+
+}

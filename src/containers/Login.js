@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {postNewUser} from '../Redux/actions/action-shoppers';
-import {createNewUser} from '../Redux/actions/action-shoppers';
+import {postNewShopper} from '../Redux/actions/action-shoppers';
 import {connect} from 'react-redux';
 
 class Login extends Component {
@@ -37,7 +36,7 @@ class Login extends Component {
 					<div>
 						<p><input name="email" type="text" placeholder="Email" onChange={this.onChangeHandler} value={email}/></p>
 
-						<button onClick={() => postNewUser(username, password, email)}>Register</button> (POST Request)
+						<button onClick={() => postNewShopper(username, password, email)}>Register</button> (POST Request)
 						<p>Have an account? <button onClick={this.onClickChangeUserStatus}>Log In</button></p>
 					</div>
 				:
@@ -52,18 +51,18 @@ class Login extends Component {
 	}
 }
 
-// const mapStateToProps = (state) => {
-// 	return {
-// 		shopper: state.shopper
-// 	}
-// }
-//
-// const mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		postNewUser: (username, password, email) => dispatch(postNewUser(username, password, email))
-// 	}
-// }
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);
+const mapStateToProps = (state) => {
+	return {
+		shopper: state.shopper
+	}
+}
 
-export default Login
+const mapDispatchToProps = (dispatch) => {
+	return {
+		postNewShopper: (username, password, email) => dispatch(postNewShopper(username, password, email))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+// export default Login

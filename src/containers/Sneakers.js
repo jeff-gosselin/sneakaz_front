@@ -1,32 +1,58 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {getSneakers} from '../Redux/actions/action-sneakers';
+import {Route, Switch} from 'react-router-dom';
+import {fetchSneakers} from '../Redux/actions/action-sneakers';
 import SneakerItem from '../components/SneakerItem';
+import '../css/sneakers.css';
 
 class Sneakers extends Component {
+	componentDidMount() {
+	    this.props.dispatch(fetchSneakers());
+	 }
 	render() {
-		console.log("Sneaker Props",this.props);
-		const sneakerItems = this.props.sneakers.map(sneaker => <SneakerItem sneaker={sneaker} />);
-		console.log("array of sneakers?",sneakerItems);
+		const {error, loading, sneakers} = this.props;
+		const sneakerItems = sneakers.map(sneaker => {
+			return <SneakerItem key={sneaker.id} sneaker={sneaker} itemSize="small" />})
 
-		return (
+		if (error) {
+      return <div>Error! {error.message}</div>;
+    }
 
-			<ul>{sneakerItems}</ul>
+    if (loading) {
+      return <div>Loading...</div>;
+    }
 
-		)
+    return (
+			<div>
+			<Switch>
+				<Route path='/sneakers/:id' render={(routerProps) => {
+
+					let id = routerProps.match.params.id;
+					let sneaker = sneakers.find(sneaker => sneaker.id == id)
+
+
+					console.log("state is", sneaker);
+					return <SneakerItem key={sneaker.id} sneaker={sneaker} itemSize="large" />
+				}} />
+				<Route path='/sneakers' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
+
+			</Switch>
+
+			</div>
+    );
 	}
 }
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = dispatch => {
 	return {
-		sneakers: state.sneakers
+
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return bindActionCreators({sneakers: getSneakers}, dispatch)
-}
+const mapStateToProps = state => ({
+  sneakers: state.sneakers.sneakers,
+  loading: state.sneakers.loading,
+  error: state.sneakers.error
+});
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sneakers)
+export default connect(mapStateToProps)(Sneakers);
