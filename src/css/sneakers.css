@@ -1,3 +1,16 @@
+a:link {
+	text-decoration: none;
+	color: #222;
+}
+
+.float-me-right {
+	float: right;
+}
+
+.float-me-left {
+	float: left;
+}
+
 .sneaker-image-small {
 	width: 300px;
 	height: auto;
@@ -32,14 +45,23 @@
 }
 
 .sneaker-name {
-	position: relative;
-	top: 110px;
 	color: #222;
+	padding-left: 50px;
+	padding-top: 20px;
+}
+
+.brand-logo {
+	float: left;
+	height: 70px;
+	width: auto;
+	padding-top: 20px;
+	padding-left: 16px;
+	opacity: .25;
 }
 
 .sneaker-ui {
 	width: 60%;
-	height: 100px;
+	height: 380px;
 	background-color: #fff;
 	position: fixed;
 	bottom: 0px;

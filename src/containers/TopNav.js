@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import '../css/topNav.css'
+import '../css/topNav.css';
+import {Route, Switch} from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
 class TopNav extends Component {
 	render() {
 		return (
 			<div className="top-nav">
 				<div className="site-logo">
+				<Link to={`/`}>
 					<h2>Sneakaz</h2>
+				</Link>
 				</div>
 				<div className="categoryWrapper">
 					<h3 className="category">MENS</h3>

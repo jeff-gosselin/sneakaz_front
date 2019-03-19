@@ -5,35 +5,34 @@ import {selectedSneaker} from '../Redux/actions/action-sneakers'
 import '../css/sneakers.css';
 
 class SneakerShow extends Component {
+
 	render() {
 		console.log("Props?", this.props);
-		const {name, category, price, brand, image, id} = this.props.sneaker
+		const {name, category, price, brand, image, id} = this.props.sneakerReactProp
 		const images = require.context('../images/sneakers', true);
 
 		return (
 			<div  className="sneaker-show">
-				<h2 className="sneaker-name">{name}</h2>
-
 				<img className="sneaker-image-large" src={images(`./${brand}/${image}`)} alt=""/>
 				<div className="sneaker-ui">
+					<div><img className="brand-logo" src={images(`./logos/${brand}_logo.png`)} alt={brand}/></div>
+					<h2 className="float-me-left sneaker-name">{name}</h2>
+					<h2 className="float-me-right">{price}</h2>
+					<button className="float-me-right">Add to Cart</button>
 				</div>
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = (state) => ({
-	selectedSneaker: state
-})
+// const mapStateToProps = (state) => ({
+// 	selectedSneaker: state.selectedSneaker
+// })
 
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    selectedSneaker: (sneaker) => { dispatch({type: 'SELECT_SNEAKER', selectedSneaker: sneaker}) }
-  }
-}
 
-export default connect(null, mapDispatchToProps)(SneakerShow);
+
+export default connect()(SneakerShow);
 
 // <p>{name}</p>
 // <p>{category}</p>

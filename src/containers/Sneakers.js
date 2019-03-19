@@ -15,7 +15,7 @@ class Sneakers extends Component {
 
 		const {error, loading, sneakers} = this.props;
 		const sneakerItems = sneakers.map(sneaker => {
-			return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} />})
+			return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />})
 
 		if (error) {
       return <div>Error! {error.message}</div>;
@@ -31,10 +31,12 @@ class Sneakers extends Component {
 				<Route path='/sneakers/:id' render={(routerProps) => {
 					let id = routerProps.match.params.id;
 					let sneaker = sneakers.find(sneaker => sneaker.id == id)
-					return <SneakerShow key={id} sneakerReactProp={sneaker} sneaker_id={id} />
+					return (sneaker ? <SneakerShow key={id} sneakerReactProp={sneaker} sneaker_id={id} /> : null)
 				}} />
 
 				<Route path='/sneakers' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
+
+				<Route exact path='/' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
 			</Switch>
 
 			</div>
