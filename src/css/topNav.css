@@ -34,7 +34,13 @@
 	background-color: rgba(255,255,255,.25);
 	border: 3px solid rgba(94, 160, 220, 1);
 	padding: 4px;
-	color: #fff;
+	color: #222;
+	transition-duration: 1.5s;
+}
+
+.search input:focus {
+	background-color: #fff;
+	transition-duration: 1.5s;
 }
 
 .site-logo {

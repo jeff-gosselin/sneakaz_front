@@ -23,9 +23,10 @@ class SneakerItem extends Component {
 				<div className="sneaker-card">
 
 					<Link to={`/sneakers/${id}`}>
+						<div>
 							<img className="sneaker-image-small" src={images(`./${brand}/${image}`)} alt="" data-id={id}/>
-
 							<h2 className="index-sneaker-name">{name}</h2>
+						</div>
 					</Link>
 					<p>{category}</p>
 					<p>{price}</p>

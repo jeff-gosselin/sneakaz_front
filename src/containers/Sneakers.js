@@ -4,6 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import {fetchSneakers} from '../Redux/actions/action-sneakers';
 import SneakerItem from '../components/SneakerItem';
 import SneakerShow from './SneakerShow';
+import {Redirect, withRouter} from 'react-router-dom'
 
 import '../css/sneakers.css';
 
@@ -14,8 +15,29 @@ class Sneakers extends Component {
 	render() {
 
 		const {error, loading, sneakers} = this.props;
+		const sneakerMens = sneakers.filter(sneaker => sneaker.category === "mens");
+		const sneakerWomens = sneakers.filter(sneaker => sneaker.category === "womens");
+
 		const sneakerItems = sneakers.map(sneaker => {
-			return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />})
+		 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
+
+		// if(this.props.location.pathname === "/sneakers" || this.props.location.pathname === "/"){
+		// 	const sneakerItems = sneakers.map(sneaker => {
+		// 	 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
+		//  }
+		//
+		//  if(this.props.location.pathname === "/mens"){
+ 		// 	const sneakerItems = sneakerMens.map(sneaker => {
+ 		// 	 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
+ 		//  }
+		//
+		//  if(this.props.location.pathname === "/womens"){
+ 		// 	const sneakerItems = sneakerWomens.map(sneaker => {
+ 		// 	 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
+ 		//  }
+
+
+
 
 		if (error) {
       return <div>Error! {error.message}</div>;
@@ -57,4 +79,4 @@ const mapStateToProps = state => ({
   error: state.sneakers.error
 });
 
-export default connect(mapStateToProps)(Sneakers);
+export default connect(mapStateToProps)(withRouter(Sneakers));
