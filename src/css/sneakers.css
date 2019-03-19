@@ -4,8 +4,9 @@
 }
 
 .sneaker-image-large {
-	width: 75%;
+	width: 60%;
 	height: auto;
+	margin-top: -100px;
 }
 
 .sneaker-image-small:hover {
@@ -23,7 +24,28 @@
 .sneaker-card {
 	flex: 1;
 	flex-basis: 30%;
+}
+
+.sneaker-show {
+	text-align: center;
+	margin: auto;
+}
+
+.sneaker-name {
+	position: relative;
+	top: 110px;
+	color: #222;
+}
+
+.sneaker-ui {
+	width: 60%;
+	height: 100px;
 	background-color: #fff;
-
-
+	position: fixed;
+	bottom: 0px;
+	border: 1px solid #ddd;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	left: 50%;
+	margin-left: -30%;
 }

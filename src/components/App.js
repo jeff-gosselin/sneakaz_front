@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import '../css/App.css';
 import Login from '../containers/Login';
 import Sneakers from '../containers/Sneakers';
+import TopNav from '../containers/TopNav'
 
 class App extends Component {
 
@@ -10,6 +11,7 @@ class App extends Component {
 		console.log(this.props.store);
     return (
 			<div>
+				<TopNav />
 				<Switch>
 					<Route path='/login' component={Login} />
 					<Route path='/sneakers' component={Sneakers} />

@@ -24,7 +24,6 @@ class Login extends Component {
 
 	render() {
 		const {username, password, email} = this.state;
-		console.log("This is the user:",username);
 		return (
 			<div>
 				<h1>Welcome! Please Log In.</h1>
@@ -36,7 +35,7 @@ class Login extends Component {
 					<div>
 						<p><input name="email" type="text" placeholder="Email" onChange={this.onChangeHandler} value={email}/></p>
 
-						<button onClick={() => postNewShopper(username, password, email)}>Register</button> (POST Request)
+						<button onClick={() => this.props.postNewShopper(username, password, email)}>Register</button> (POST Request)
 						<p>Have an account? <button onClick={this.onClickChangeUserStatus}>Log In</button></p>
 					</div>
 				:

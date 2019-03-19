@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   sneakers: [],
+	selectedSneaker: {},
 	loading: false,
   error: null
 }
@@ -44,6 +45,13 @@ export default function sneakerReducer(state = initialState, action) {
         error: action.payload.error,
         sneakers: []
       };
+
+			case "SELECT_SNEAKER": {
+	      return {
+					 ...state,
+					 selectedSneaker: action.payload
+				 }
+	    }
 
     default:
       // ALWAYS have a default case in a reducer

@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
 import {fetchSneakers} from '../Redux/actions/action-sneakers';
 import SneakerItem from '../components/SneakerItem';
+import SneakerShow from './SneakerShow';
+
 import '../css/sneakers.css';
 
 class Sneakers extends Component {
@@ -10,9 +12,10 @@ class Sneakers extends Component {
 	    this.props.dispatch(fetchSneakers());
 	 }
 	render() {
+
 		const {error, loading, sneakers} = this.props;
 		const sneakerItems = sneakers.map(sneaker => {
-			return <SneakerItem key={sneaker.id} sneaker={sneaker} itemSize="small" />})
+			return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} />})
 
 		if (error) {
       return <div>Error! {error.message}</div>;
@@ -26,16 +29,12 @@ class Sneakers extends Component {
 			<div>
 			<Switch>
 				<Route path='/sneakers/:id' render={(routerProps) => {
-
 					let id = routerProps.match.params.id;
 					let sneaker = sneakers.find(sneaker => sneaker.id == id)
-
-
-					console.log("state is", sneaker);
-					return <SneakerItem key={sneaker.id} sneaker={sneaker} itemSize="large" />
+					return <SneakerShow key={id} sneakerReactProp={sneaker} sneaker_id={id} />
 				}} />
-				<Route path='/sneakers' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
 
+				<Route path='/sneakers' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
 			</Switch>
 
 			</div>
@@ -43,11 +42,12 @@ class Sneakers extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     selectedSneaker: (sneaker) => dispatch(selectSneaker(sneaker))
+//   }
+// }
 
-	}
-}
 
 const mapStateToProps = state => ({
   sneakers: state.sneakers.sneakers,

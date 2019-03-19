@@ -5,8 +5,8 @@ const createNewShopper = (shopperObj) => ({
 
 export const postNewShopper = (username, password, email) => {
 	console.log("username:", username, "password:", password, "email", email);
-	return dispatch => {
-		fetch('http://localhost:3000/api/v1/login', {
+	return (dispatch) => {
+		return fetch('http://localhost:3000/api/v1/shoppers', {
 			method: "POST",
 			body: JSON.stringify({
 				shopper: {username: username, password: password, email: email}}),
@@ -18,8 +18,9 @@ export const postNewShopper = (username, password, email) => {
 		})
 		.then(response => response.json())
 		.then(data => {
+			console.log("Hi");
         localStorage.setItem("token", data.jwt);
-				return dispatch(createNewShopper(data.shopper))
+				return dispatch(createNewShopper(data))
       })
 		.catch(error => console.log("err", error));
 

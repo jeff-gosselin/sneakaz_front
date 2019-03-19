@@ -9,6 +9,11 @@
 export const FETCH_SNEAKERS_BEGIN = 'FETCH_SNEAKERS_BEGIN';
 export const FETCH_SNEAKERS_SUCCESS = 'FETCH_SNEAKERS_SUCCESS';
 export const FETCH_SNEAKERS_FAILURE = 'FETCH_SNEAKERS_FAILURE';
+export const SELECT_SNEAKER = 'SELECT_SNEAKER';
+
+
+
+export const selectedSneaker = (sneaker) => ({ type: "SELECT_SNEAKER", payload: sneaker })
 
 export const fetchSneakersBegin = () => ({
   type: FETCH_SNEAKERS_BEGIN
