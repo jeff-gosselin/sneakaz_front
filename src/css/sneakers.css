@@ -19,13 +19,13 @@ a:link {
 .sneaker-image-large {
 	width: 60%;
 	height: auto;
-	margin-top: -100px;
+	margin-top: 0px;
 }
 
 .sneaker-image-small:hover {
 	width: 300px;
 	height: auto;
-	background: rgba(0,225,255,.1);
+	background: rgba(94, 160, 220, .21);
 }
 
 .sneaker-wrapper {
@@ -61,7 +61,7 @@ a:link {
 
 .sneaker-ui {
 	width: 60%;
-	height: 300px;
+	height: 10%;
 	background-color: #fff;
 	position: fixed;
 	bottom: 0px;
@@ -70,5 +70,5 @@ a:link {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	left: 50%;
 	margin-left: -30%;
-	padding: 20px;
+	padding: 10px;
 }

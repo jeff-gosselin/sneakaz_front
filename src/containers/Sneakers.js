@@ -21,20 +21,7 @@ class Sneakers extends Component {
 		const sneakerItems = sneakers.map(sneaker => {
 		 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
 
-		// if(this.props.location.pathname === "/sneakers" || this.props.location.pathname === "/"){
-		// 	const sneakerItems = sneakers.map(sneaker => {
-		// 	 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
-		//  }
-		//
-		//  if(this.props.location.pathname === "/mens"){
- 		// 	const sneakerItems = sneakerMens.map(sneaker => {
- 		// 	 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
- 		//  }
-		//
-		//  if(this.props.location.pathname === "/womens"){
- 		// 	const sneakerItems = sneakerWomens.map(sneaker => {
- 		// 	 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
- 		//  }
+		
 
 
 

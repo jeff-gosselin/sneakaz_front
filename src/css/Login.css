@@ -22,7 +22,7 @@
 	background: @blue;
 	border: 1px solid darken(@blue, 5%);
 	padding: .5em 2em;
-	color: white;
+	color: #222;
 	margin-right: .5em;
 	box-shadow: inset 0px 1px 0px fadeout(white, 80%);
 	&:hover {
