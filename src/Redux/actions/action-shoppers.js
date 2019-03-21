@@ -49,13 +49,36 @@ export const loginShopper = (username, password) => {
 		})
 		.then(response => response.json())
 		.then(data => {
-			console.log("Hi");
+			console.log("This is data.shopper.name:", data.shopper);
         localStorage.setItem("token", data.jwt);
-				return dispatch(loginTheShopper(data))
+				return dispatch(loginTheShopper(data.shopper))
       })
 		.catch(error => console.log("err", error));
 
 
 
 	}
+}
+
+export const getShopperWithToken = () => {
+	return(dispatch) =>{
+      return fetch(`http://localhost:3000/api/v1/profile`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${localStorage.token}`
+        }
+      }).then(res => res.json())
+      .then(data => {
+        if (data.message){
+          localStorage.removeItem('token')
+        }
+        else{
+					console.log(data)
+          dispatch({type: "LOG_IN_SHOPPER", payload: data.shopper})
+        }
+      })
+
+  }
 }

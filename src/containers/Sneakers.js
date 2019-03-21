@@ -21,7 +21,7 @@ class Sneakers extends Component {
 		const sneakerItems = sneakers.map(sneaker => {
 		 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
 
-		
+
 
 
 
@@ -40,7 +40,7 @@ class Sneakers extends Component {
 				<Route path='/sneakers/:id' render={(routerProps) => {
 					let id = routerProps.match.params.id;
 					let sneaker = sneakers.find(sneaker => sneaker.id == id)
-					return (sneaker ? <SneakerShow key={id} sneakerReactProp={sneaker} sneaker_id={id} /> : null)
+					return (sneaker ? <SneakerShow key={id} sneaker={sneaker} sneaker_id={id} /> : null)
 				}} />
 
 				<Route path='/sneakers' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />

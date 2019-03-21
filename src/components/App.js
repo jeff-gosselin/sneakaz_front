@@ -3,10 +3,16 @@ import {Route, Switch} from 'react-router-dom';
 import '../css/App.css';
 import Login from '../containers/Login';
 import Sneakers from '../containers/Sneakers';
-import TopNav from '../containers/TopNav'
-import MainBanner from './MainBanner'
+import TopNav from '../containers/TopNav';
+import MainBanner from './MainBanner';
+import {connect} from 'react-redux';
+import {getShopperWithToken} from '../Redux/actions/action-shoppers'
 
 class App extends Component {
+	componentDidMount() {
+		if(localStorage.token) {this.props.getShopperWithToken()}
+	 }
+
 
   render() {
 		console.log(this.props.store);
@@ -27,4 +33,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		getShopperWithToken: () => dispatch(getShopperWithToken())
+	}
+}
+
+export default connect(null, mapDispatchToProps)(App);
