@@ -7,13 +7,35 @@ import {Route, Switch} from 'react-router-dom';
 import {Redirect, withRouter} from 'react-router-dom';
 import QuantitySelector from '../components/QuantitySelector';
 import SizeSelector from '../components/SizeSelector';
+
+
 class SneakerShow extends Component {
 
+	state = {
+		qty: 1,
+		size: 0
+	}
 
-	routeChange() {
-    let path = `/login`;
-    this.props.theState.history.push(path);
-  }
+	decreaseQty = () => {
+		console.log("-");
+		this.setState({
+			qty: this.state.qty > 1 ? this.state.qty - 1 : 1
+		})
+	}
+
+	increaseQty = () => {
+		console.log("+");
+		this.setState({
+			qty: this.state.qty + 1
+		})
+	}
+
+	changeSize = (e) => {
+		console.log("Size!!!!!!!!!!!!!!!!!!",e.target.value);
+		this.setState({
+			size: e.target.value
+		})
+	}
 
 	render() {
 		console.log("Props?", this.props);
@@ -26,10 +48,10 @@ class SneakerShow extends Component {
 				<div className="sneaker-ui">
 					<div><img className="brand-logo" src={images(`./logos/${brand}_logo.png`)} alt={brand}/></div>
 					<h2 className="float-me-left sneaker-name">{name}</h2>
-					<QuantitySelector />
-					<SizeSelector />
+					<QuantitySelector increaseQty={this.increaseQty} decreaseQty={this.decreaseQty} qty={this.state.qty}/>
+					<SizeSelector changeSize={this.changeSize}/>
 					<h2 className="float-me-right">{price}</h2>
-					{localStorage.token ? <button onClick={() => this.props.addToCart(this.props.sneaker)} className="float-me-right">Add to Cart</button> : <Link to="/login">Log In To Buy</Link>}
+					{localStorage.token ? <button onClick={() => this.props.addToCart({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right">Add to Cart</button> : <Link to="/login">Log In To Buy</Link>}
 
 
 
@@ -46,11 +68,11 @@ class SneakerShow extends Component {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addToCart: (item) => {
-			dispatch({ type: 'ADD_TO_CART', payload: item })
+		addToCart: (itemObj) => {
+			dispatch({ type: 'ADD_TO_CART', payload: itemObj })
 		},
-		removeFromCart: (item) => {
-			dispatch({ type: 'REMOVE_FROM_CART', payload: item })
+		removeFromCart: (itemObj) => {
+			dispatch({ type: 'REMOVE_FROM_CART', payload: itemObj })
 		}
 	}
 }

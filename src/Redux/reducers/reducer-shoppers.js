@@ -12,7 +12,10 @@ export const shopperReducer = (state = initialState, action) => {
 			return {...state, shopper: action.payload}
 
 		case 'ADD_TO_CART':
-			return {...state, currentCart: [...state.currentCart, action.payload]}
+			return {...state, currentCart: [...state.currentCart, action.payload] }
+
+		case 'ADD_QTY':
+			return {...state, quantity: action.payload}
 
 		case 'REMOVE_FROM_CART':
 			const firstItemMatch = state.currentCart.indexOf(action.payload);

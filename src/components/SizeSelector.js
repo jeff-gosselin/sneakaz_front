@@ -2,16 +2,10 @@ import React, {Component} from 'react';
 
 class SizeSelector extends Component {
 
-	state = {
-		size: null
-	}
-
-
-
 	render() {
 		return (
 			<div>
-				<select name="Size">
+				<select name="Size" onChange={(e) => this.props.changeSize(e)}>
 					<option>Select Size</option>
 					<option value="8">8</option>
 					<option value="8.5">8 &frac12;</option>
@@ -29,8 +23,7 @@ class SizeSelector extends Component {
 					<option value="14.5">14 &frac12;</option>
 					<option value="15">15</option>
 					<option value="15.5">15 &frac12;</option>
-
-
+					<option value="16">16</option>
 				</select>
 			</div>
 		)

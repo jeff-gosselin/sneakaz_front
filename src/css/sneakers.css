@@ -18,6 +18,7 @@ a:link {
 
 .sneaker-image-large {
 	width: 70%;
+	max-width:1200px;
 	height: auto;
 	margin-top: -130px;
 }
@@ -61,7 +62,7 @@ a:link {
 
 .sneaker-ui {
 	width: 60%;
-	height: 10%;
+	height: 20%;
 	background-color: #fff;
 	position: fixed;
 	bottom: 0px;
