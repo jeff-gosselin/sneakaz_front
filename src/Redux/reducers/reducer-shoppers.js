@@ -12,7 +12,23 @@ export const shopperReducer = (state = initialState, action) => {
 			return {...state, shopper: action.payload}
 
 		case 'ADD_TO_CART':
-			return {...state, currentCart: [...state.currentCart, action.payload] }
+			const thePayload = action.payload;
+			console.log("The Payload", thePayload);
+
+			console.log('the cart', state.currentCart);
+
+			if(state.currentCart.length === 0) {
+				console.log("Amount in cart prior to new addition:", state.currentCart.length);
+				return {...state, currentCart: [...state.currentCart, action.payload] }
+			} else {
+				let result = state.currentCart.filter(object => object.size === thePayload.size && object.sneaker.id === thePayload.sneaker.id)
+				console.log("The result", result);
+
+				result[0].quantity += thePayload.quantity;
+			}
+
+
+
 
 		case 'ADD_QTY':
 			return {...state, quantity: action.payload}

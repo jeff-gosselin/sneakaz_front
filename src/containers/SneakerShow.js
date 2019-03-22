@@ -69,6 +69,7 @@ class SneakerShow extends Component {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addToCart: (itemObj) => {
+			// console.log("ADD_TO_CART", itemObj.sneaker.id);
 			dispatch({ type: 'ADD_TO_CART', payload: itemObj })
 		},
 		removeFromCart: (itemObj) => {
