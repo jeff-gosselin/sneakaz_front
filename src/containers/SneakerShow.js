@@ -46,7 +46,7 @@ class SneakerShow extends Component {
 			<div  className="sneaker-show">
 				<img className="sneaker-image-large" src={images(`./${brand}/${image}`)} alt=""/>
 				<div className="sneaker-ui">
-					<div><img className="brand-logo" src={images(`./logos/${brand}_logo.png`)} alt={brand}/></div>
+					<div className="brand-corner"><img className="brand-logo" src={images(`./logos/${brand}_logo.png`)} alt={brand}/></div>
 					<h2 className="float-me-left sneaker-name">{name}</h2>
 					<QuantitySelector increaseQty={this.increaseQty} decreaseQty={this.decreaseQty} qty={this.state.qty}/>
 					<SizeSelector changeSize={this.changeSize}/>

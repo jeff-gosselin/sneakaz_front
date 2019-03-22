@@ -47,21 +47,24 @@ class TopNav extends Component {
 		const images = require.context('../images', true);
 		return (
 			<div className="top-nav">
-				<div className="site-logo">
+
 				<Link to={`/`}>
-					<h2>Sneakaz</h2>
+					<div className="site-logo">
+						<h2>Sneakaz</h2>
+					</div>
 				</Link>
-				</div>
+
 				<div className="categoryWrapper">
 					<h3 className="category">MENS</h3>
 					<h3 className="category">WOMENS</h3>
 				</div>
-				<div className="search">
-					<input onSelect={() => this.searchRedirect()} type="text" placeholder="Search"/>
-				</div>
+
 
 				<div className="right-nav">
-
+					<div className="search">
+						<span class="fa fa-search"></span>
+						<input onSelect={() => this.searchRedirect()} type="text" />
+					</div>
 
 
 				<div className="rt-nav-icons">

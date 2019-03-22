@@ -1,53 +1,93 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+a {
+	/* color: rgba(200,80,20); */
+}
+
+
+
+.search .fa-search {
+  position: absolute;
+  top: 7px;
+  left: 12px;
+  font-size: 15px;
+	color:#fff;
+	z-index: 6;
+}
+
+
 .top-nav {
 	width: 100%;
 	height: 60px;
 	top: 0;
-	/* background-color: rgba(200, 228, 180, 1); */
-	background-color: rgba(199, 199, 209, .95);
+	background-color: rgba(23, 23, 43, .55);
+	/* background-color: rgba(199, 199, 209, 0); */
 	position: fixed;
 	border-bottom: 2px rgba(94, 160, 220, .25) solid;
 }
 
 .right-nav {
 	height: 62px;
-	width: 400px;
+	width: 45%;
+	min-width: 500px;
 	position: absolute;
 	top: 0;
 	right: 0;
-	background-image: url("../images/carbon_fibre.png");
-  background-repeat: repeat;
+	background-image: linear-gradient(to right, rgba(94, 160, 220, .15), rgba(94, 160, 220, .45));
+	/* background-image: url("../images/carbon_fibre.png");
+  background-repeat: repeat; */
 	background-color: #000;
 	opacity: 1;
-	border-left: 2px solid rgba(94, 160, 220, 1);
+	border-left: 6px solid rgba(94, 160, 220, 1);
+	border-radius: 85px 0px 0px 0px;
+	/* box-shadow: 10px -10px -10px; */
 	/* border-bottom: 1px rgba(94, 160, 220, 1) solid; */
 }
 
 .search {
-	margin-left: 540px;
-	margin-top: 16px;
+
+	margin-top: 17px;
+	position: relative;
+	left: 210px;
 }
 
 .search input {
-	border-radius: 4px;
+	text-indent: 3px;
 	height: 22px;
-	width: 300px;
-	background-color: rgba(255,255,255,.25);
-	border: 3px solid rgba(94, 160, 220, 1);
+	width: 22px;
+	background-color: rgba(255,255,255,0);
+	border: 0px solid rgba(94, 160, 220, 1);
 	padding: 4px;
+	padding-left: 13px;
+	border-radius: 25px;
 	color: #222;
 	transition-duration: 1.5s;
+	position: absolute;
+	z-index: 50;
+	cursor: pointer;
 }
 
 .search input:focus {
+	
 	background-color: #fff;
 	transition-duration: 1.5s;
+	width: 170px;
+	border: 0px solid rgba(94, 160, 220, 1);
+	outline:none;
+}
+
+::placeholder {
+  color: #fff;
+  font-size: 15px;
+
 }
 
 .site-logo {
 	margin-left: 30px;
 	margin-top: -3px;
-	color: rgba(94, 160, 220, 1);
+	color: rgba(134, 200, 260, 1);
 	float: left;
+	text-shadow: 2px 2px 2px rgba(0,0,0,.1);
 }
 
 .category {
@@ -66,12 +106,14 @@
 	margin-top: 16px;
 	font-size: .9em;
 	/* color: #efefef; */
-	color: rgba(94, 160, 220, 1);
+	color: rgba(94, 160, 220, .75);
+	z-index: 20;
 }
 
+
 h3.rt-nav-icons {
-	position: relative;
-	left: -80px;
+	position:absolute;
+	left: 50px;
 	top: 7px;
 	display: inline;
 }
@@ -79,11 +121,11 @@ h3.rt-nav-icons {
 .rt-nav-icons img {
 	width: 30px;
 	height: auto;
-	opacity: .8;
+	opacity: .9;
 }
 
 .fix-icon-placement {
-	margin-top: -1px;
+	margin-top: -120px;
 }
 
 .categoryWrapper {
