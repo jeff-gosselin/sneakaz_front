@@ -12,8 +12,9 @@ export const shopperReducer = (state = initialState, action) => {
 		case 'LOG_IN_SHOPPER':
 			return {...state, shopper: action.payload}
 
-		// case 'CREATE_NEW_ORDER':
-		// 	return {...state, order_num: action.payload}
+		case 'GET_ORDER_ID':
+			console.log("The Payload", action.payload);
+			return {...state, order_num: action.payload}
 
 		case 'ADD_TO_CART':
 			const thePayload = action.payload;

@@ -82,11 +82,11 @@ export const getShopperWithToken = () => {
   }
 }
 
-// export const createNewOrder = () => {
-// 	// return(dispatch) => {
-// 	//
-// 	// 	dispatch({type: "CREATE_NEW_ORDER", payload: "New Order Created!"})
-// 	//
-// 	// }
-//
-// }
+export const createNewOrder = (shopper_id) => {
+	return(dispatch) => {
+		console.log("Inside Action:", shopper_id);
+		dispatch({type: "CREATE_NEW_ORDER", payload: "New Order Created!"})
+
+	}
+
+}

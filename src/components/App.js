@@ -14,17 +14,24 @@ class App extends Component {
 		if(localStorage.token) {this.props.getShopperWithToken()}
 	 }
 
+	checkOrderStatus = () => {
+
+		if(this.props.currentShopper.orders == undefined) {
+			return null
+		} else {
+			let orders = this.props.currentShopper.orders;
+			let shopper_id = this.props.currentShopper.id
+			if(orders.length === 0 || orders[orders.length - 1].complete === true) {
+				console.log("order status fired", shopper_id);
+				return this.props.createNewOrder(shopper_id);
+			}
+		}
+	}
 
   render() {
-		console.log("-> ->",this.props);
-		// if(this.props.currentShopper.orders == undefined) {
-		// 	return null
-		// } else {
-		// 	let orders = this.props.currentShopper.orders;
-		// 	if(orders.length === 0 || orders[orders.length - 1].complete === true) {
-		// 		console.log("Inside");
-		// 		this.props.createNewOrder()};
-		// }
+		this.checkOrderStatus();
+
+
 
     return (
 			<div>
@@ -51,9 +58,10 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = (dispatch) => {
+	// console.log("STORE", store.getState);
 	return {
-		getShopperWithToken: () => dispatch(getShopperWithToken())
-		// createNewOrder: () => dispatch(createNewOrder())
+		getShopperWithToken: () => dispatch(getShopperWithToken()),
+		createNewOrder: () => dispatch(createNewOrder())
 	}
 }
 
