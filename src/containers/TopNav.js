@@ -33,9 +33,9 @@ class TopNav extends Component {
 		})
 	}
 
+
 	render() {
 
-		console.log('the shopper:', this.props.shopper);
 		if(this.state.logInClicked === "log me in" && !localStorage.token) {
 			return <Redirect to="/login"/>
 		}
@@ -62,7 +62,7 @@ class TopNav extends Component {
 
 				<div className="right-nav">
 					<div className="search">
-						<span class="fa fa-search"></span>
+						<span className="fa fa-search"></span>
 						<input onSelect={() => this.searchRedirect()} type="text" />
 					</div>
 
@@ -73,11 +73,11 @@ class TopNav extends Component {
 
 					<h3 className="rt-nav-icons">Welcome {this.props.currentShopper.username ? this.props.currentShopper.username : null}!</h3>
 
-					<div class="dropdown">
+					<div className="dropdown">
 						<div className="dropbtn rt-nav-icons"><img src={images(`./user.png`)}/></div>
-						<div class="dropdown-content">
-							<a href="#">View Profile</a>
-			    		<a href="#">Order History</a>
+						<div className="dropdown-content">
+							<a>View Profile</a>
+			    		<a>Order History</a>
 							{this.props.currentShopper.username ? <a href="" onClick={() => this.logOut()}>Log Out</a>
 							: <a href="" onClick={() => this.logIn()}>Log In</a>}
 
@@ -96,16 +96,6 @@ class TopNav extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	currentShopper: state.shopper.shopper,
-	orders: state.shopper.shopper.orders
+	currentShopper: state.shopper.shopper
 })
 export default connect(mapStateToProps)(withRouter(TopNav))
-
-// <div>
-// 	<h3 className="rt-nav-icons">Welcome Jeff! {this.state.loggedIn ? <a className="log-out" href="#" onClick={() => this.logOut()}>(Log Out)</a> : null}</h3>
-// </div>
-
-
-// <div className="rt-nav-icons">
-// 	<img className="fix-icon-placement" src={images(`./shopping-bag.png`)}/>
-// </div>

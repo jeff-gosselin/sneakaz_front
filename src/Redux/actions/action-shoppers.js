@@ -23,7 +23,6 @@ export const postNewShopper = (username, password, email) => {
 		})
 		.then(response => response.json())
 		.then(data => {
-			console.log("Hi");
         localStorage.setItem("token", data.jwt);
 				return dispatch(createNewShopper(data))
       })
@@ -82,3 +81,12 @@ export const getShopperWithToken = () => {
 
   }
 }
+
+// export const createNewOrder = () => {
+// 	// return(dispatch) => {
+// 	//
+// 	// 	dispatch({type: "CREATE_NEW_ORDER", payload: "New Order Created!"})
+// 	//
+// 	// }
+//
+// }

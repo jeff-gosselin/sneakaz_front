@@ -6,7 +6,8 @@ import Sneakers from '../containers/Sneakers';
 import TopNav from '../containers/TopNav';
 import MainBanner from './MainBanner';
 import {connect} from 'react-redux';
-import {getShopperWithToken} from '../Redux/actions/action-shoppers'
+import {getShopperWithToken} from '../Redux/actions/action-shoppers';
+import {createNewOrder} from '../Redux/actions/action-shoppers';
 
 class App extends Component {
 	componentDidMount() {
@@ -15,7 +16,16 @@ class App extends Component {
 
 
   render() {
-		console.log(this.props.store);
+		console.log("-> ->",this.props);
+		// if(this.props.currentShopper.orders == undefined) {
+		// 	return null
+		// } else {
+		// 	let orders = this.props.currentShopper.orders;
+		// 	if(orders.length === 0 || orders[orders.length - 1].complete === true) {
+		// 		console.log("Inside");
+		// 		this.props.createNewOrder()};
+		// }
+
     return (
 			<div>
 				<TopNav />
@@ -33,10 +43,18 @@ class App extends Component {
   }
 }
 
+
+const mapStateToProps = state => ({
+	currentShopper: state.shopper.shopper,
+	order_num: state.order_num
+})
+
+
 const mapDispatchToProps = (dispatch) => {
 	return {
 		getShopperWithToken: () => dispatch(getShopperWithToken())
+		// createNewOrder: () => dispatch(createNewOrder())
 	}
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

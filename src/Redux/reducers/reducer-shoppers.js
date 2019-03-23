@@ -1,6 +1,7 @@
 const initialState = {
 	shopper: {},
-	currentCart: []
+	currentCart: [],
+	order_num: ''
 }
 
 export const shopperReducer = (state = initialState, action) => {
@@ -10,6 +11,9 @@ export const shopperReducer = (state = initialState, action) => {
 
 		case 'LOG_IN_SHOPPER':
 			return {...state, shopper: action.payload}
+
+		// case 'CREATE_NEW_ORDER':
+		// 	return {...state, order_num: action.payload}
 
 		case 'ADD_TO_CART':
 			const thePayload = action.payload;

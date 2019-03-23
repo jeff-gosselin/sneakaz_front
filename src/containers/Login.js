@@ -32,7 +32,7 @@ class Login extends Component {
 
 		const {username, password, email} = this.state;
 		return (
-			<div class="log-form">
+			<div className="log-form">
 				<div className="signup-form">
 					<h1>Welcome! Please Log In.</h1>
 					<p><input className="login-inputs" name="username" type="text" placeholder="Username" onChange={this.onChangeHandler} value={username}/></p>
@@ -45,7 +45,7 @@ class Login extends Component {
 						<p><input name="email" type="text" placeholder="Email" onChange={this.onChangeHandler} value={email}/></p>
 
 						<button className="btn" onClick={() => this.props.postNewShopper(username, password, email)}>Register</button> (POST Request)
-						<p class="forgot">Have an account? <button onClick={this.onClickChangeUserStatus}>Log In</button></p>
+						<p className="forgot">Have an account? <button onClick={this.onClickChangeUserStatus}>Log In</button></p>
 					</div>
 				:
 					<div>
