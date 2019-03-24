@@ -1,7 +1,7 @@
 const initialState = {
 	shopper: {},
 	currentCart: [],
-	order_num: ''
+	currentOrder: null
 }
 
 export const shopperReducer = (state = initialState, action) => {
@@ -10,11 +10,27 @@ export const shopperReducer = (state = initialState, action) => {
 			return {...state, shopper: action.payload}
 
 		case 'LOG_IN_SHOPPER':
-			return {...state, shopper: action.payload}
+				// check order status
+				let shopper = action.payload;
 
-		case 'GET_ORDER_ID':
-			console.log("The Payload", action.payload);
-			return {...state, order_num: action.payload}
+				if(shopper.orders == undefined) {
+					return null
+				} else {
+					let orders = shopper.orders;
+					let shopper_id = shopper.id
+					if(orders.length === 0 || orders[orders.length - 1].complete === true) {
+						console.log("order status fired", shopper_id);
+						return {...state, shopper: action.payload, currentOrder: "new"}
+					} else {
+						return {...state, shopper: action.payload, currentOrder: orders[orders.length - 1].id}
+					}
+				}
+
+
+
+		// case 'GET_ORDER_ID':
+		// 	console.log("The Payload", state.shopper);
+		// 	return {...state, order_num: action.payload}
 
 		case 'ADD_TO_CART':
 			const thePayload = action.payload;

@@ -8,6 +8,7 @@ import MainBanner from './MainBanner';
 import {connect} from 'react-redux';
 import {getShopperWithToken} from '../Redux/actions/action-shoppers';
 import {createNewOrder} from '../Redux/actions/action-shoppers';
+import {createANewOrder} from '../Redux/actions/action-shoppers';
 
 class App extends Component {
 	componentDidMount() {
@@ -16,17 +17,16 @@ class App extends Component {
 
 	checkOrderStatus = () => {
 
-		if(this.props.currentShopper.orders == undefined) {
-			return null
-		} else {
-			let orders = this.props.currentShopper.orders;
-			let shopper_id = this.props.currentShopper.id
-			if(orders.length === 0 || orders[orders.length - 1].complete === true) {
-				console.log("order status fired", shopper_id);
-				return this.props.createNewOrder(shopper_id);
+		let order = this.props.currentOrder;
+		if (order !== null) {
+			if (order === "new") {
+				console.log("Do a fetch POST to .../orders  ummm somehow.", this.props);
+				// this.props.dispatch(createANewOrder(this.props.currentShopper.id))
 			}
 		}
 	}
+
+
 
   render() {
 		this.checkOrderStatus();
@@ -53,7 +53,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
 	currentShopper: state.shopper.shopper,
-	order_num: state.order_num
+	currentOrder: state.shopper.currentOrder
 })
 
 
