@@ -28,7 +28,6 @@ export const fetchSneakersFailure = error => ({
 export function fetchSneakers() {
   return dispatch => {
     dispatch(fetchSneakersBegin());
-		let token = localStorage.token;
     return fetch("http://localhost:3000/api/v1/items", {
       method: "GET",
       headers: {

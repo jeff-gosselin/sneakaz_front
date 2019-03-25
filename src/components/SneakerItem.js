@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {selectSneaker} from '../Redux/actions/action-sneakers'
+// import {selectSneaker} from '../Redux/actions/action-sneakers'
 import '../css/sneakers.css';
 
 class SneakerItem extends Component {
@@ -12,7 +12,6 @@ class SneakerItem extends Component {
 	}
 
 	render() {
-		console.log("SneakerItem Props:",this.props.selectedSneaker);
 		const theSneaker = this.props.allSneakers.filter(sneaker => sneaker.id === this.props.sneaker_id);
 		const {name, category, price, brand, image, id} = theSneaker[0];
 

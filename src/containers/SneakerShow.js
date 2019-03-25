@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {selectedSneaker} from '../Redux/actions/action-sneakers'
+import {addToOrder} from '../Redux/actions/action-shoppers';
+// import {selectedSneaker} from '../Redux/actions/action-sneakers'
 import '../css/sneakers.css';
-import {Route, Switch} from 'react-router-dom';
+// import {Route, Switch} from 'react-router-dom';
 import {Redirect, withRouter} from 'react-router-dom';
 import QuantitySelector from '../components/QuantitySelector';
 import SizeSelector from '../components/SizeSelector';
@@ -51,7 +52,7 @@ class SneakerShow extends Component {
 					<QuantitySelector increaseQty={this.increaseQty} decreaseQty={this.decreaseQty} qty={this.state.qty}/>
 					<SizeSelector changeSize={this.changeSize}/>
 					<h2 className="float-me-right">{price}</h2>
-					{localStorage.token ? <button onClick={() => this.props.addToCart({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right">Add to Cart</button> : <Link to="/login">Log In To Buy</Link>}
+					{localStorage.token ? <button onClick={() => this.props.addToOrder({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right">Add to Cart</button> : <Link to="/login">Log In To Buy</Link>}
 
 
 
@@ -64,9 +65,7 @@ class SneakerShow extends Component {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addToCart: (itemObj) => {
-			dispatch({ type: 'ADD_TO_CART', payload: itemObj })
-		},
+		addToOrder: itemObj => dispatch(addToOrder(itemObj)),
 		removeFromCart: (itemObj) => {
 			dispatch({ type: 'REMOVE_FROM_CART', payload: itemObj })
 		}

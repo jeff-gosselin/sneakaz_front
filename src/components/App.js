@@ -8,30 +8,34 @@ import MainBanner from './MainBanner';
 import {connect} from 'react-redux';
 import {getShopperWithToken} from '../Redux/actions/action-shoppers';
 import {createNewOrder} from '../Redux/actions/action-shoppers';
-import {createANewOrder} from '../Redux/actions/action-shoppers';
+// import {createANewOrder} from '../Redux/actions/action-shoppers';
 
 class App extends Component {
 	componentDidMount() {
-		if(localStorage.token) {this.props.getShopperWithToken()}
+		if(localStorage.token) {this.props.getShopperWithToken();}
 	 }
 
 	checkOrderStatus = () => {
+		let orders = this.props.orders;
+		console.log("My orders:", orders);
 
-		let order = this.props.currentOrder;
-		if (order !== null) {
-			if (order === "new") {
-				console.log("Do a fetch POST to .../orders  ummm somehow.", this.props);
-				// this.props.dispatch(createANewOrder(this.props.currentShopper.id))
-			}
+		if (orders.length < 1 || orders[orders.length - 1].complete === true) {
+			console.log("Starting new order");
+			return this.props.createNewOrder();
 		}
+
 	}
 
 
 
+
+
   render() {
-		this.checkOrderStatus();
+		let shopper = this.props.currentShopper;
 
-
+		if (localStorage.token && Object.keys(shopper).length > 0) {
+			this.checkOrderStatus();
+		}
 
     return (
 			<div>
@@ -53,7 +57,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
 	currentShopper: state.shopper.shopper,
-	currentOrder: state.shopper.currentOrder
+	orders: state.shopper.orders
 })
 
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/topNav.css';
 import {connect} from 'react-redux';
-import {Route, Switch} from 'react-router-dom';
+// import {Route, Switch} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import {Redirect, withRouter} from 'react-router-dom';
 
@@ -68,7 +68,7 @@ class TopNav extends Component {
 
 
 				<div className="rt-nav-icons">
-					<img className="fix-icon-placement" src={images(`./shopping-bag.png`)}/>
+					<img className="fix-icon-placement" src={images(`./shopping-bag.png`)} alt="" />
 				</div>
 
 					<h3 className="rt-nav-icons">Welcome {this.props.currentShopper.username ? this.props.currentShopper.username : null}!</h3>
