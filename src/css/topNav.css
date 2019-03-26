@@ -68,7 +68,7 @@ a {
 }
 
 .search input:focus {
-	
+
 	background-color: #fff;
 	transition-duration: 1.5s;
 	width: 170px;
@@ -126,6 +126,7 @@ h3.rt-nav-icons {
 
 .fix-icon-placement {
 	margin-top: -120px;
+	margin-left: 100px;
 }
 
 .categoryWrapper {
@@ -142,19 +143,37 @@ h3.rt-nav-icons {
 
 }
 
+
 /* Dropdown Button */
-.dropbtn {
-  /* background-color: #4CAF50; */
+.dropbtn-user {
+	position: absolute;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
+	right: 0px;
+}
+
+.dropbtn-shopbag {
+	position: absolute;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+	right: 70px;
 }
 
 /* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: fixed;
-	right: 0px;
+.dropdown-user {
+  position: absolute;
+	right: 10px;
+	top: -16px;
+  display: inline-block;
+}
+
+.dropdown-shopbag {
+	position: absolute;
+	right: 10px;
 	top: -16px;
   display: inline-block;
 }
@@ -166,7 +185,8 @@ h3.rt-nav-icons {
   background-color: #f1f1f1;
   min-width: 260px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 10;
+	right: -10px;
 }
 
 /* Links inside the dropdown */
@@ -181,7 +201,20 @@ h3.rt-nav-icons {
 .dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block; margin-top: 78px; margin-left: -198px;}
+.dropdown-user:hover .dropdown-content {
+	position: absolute;
+	display: block;
+	top: 78px;
+
+}
+
+.dropdown-shopbag:hover .dropdown-content {
+	position: absolute;
+	display: block;
+	top: 78px;
+
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: rgba(94, 160, 220, 1);}
+.dropdown-user:hover .dropbtn-user,
+.dropdown-shopbag:hover .dropbtn-shopbag{background-color: rgba(94, 160, 220, 1); z-index: 8}

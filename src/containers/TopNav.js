@@ -66,27 +66,30 @@ class TopNav extends Component {
 						<input onSelect={() => this.searchRedirect()} type="text" />
 					</div>
 
-
-				<div className="rt-nav-icons">
-					<img className="fix-icon-placement" src={images(`./shopping-bag.png`)} alt="" />
-				</div>
+					<div className="dropdown-shopbag">
+						<div className="dropbtn-shopbag rt-nav-icons">
+							<img src={images(`./shopping-bag.png`)} alt="" />
+						</div>
+						<div className="dropdown-content">
+							<a>Cart Items</a>
+							{this.props.currentShopper.username ? <a href="" onClick={() => this.logOut()}>Check Out</a>
+							: <a href="" onClick={() => this.logIn()}>Log In</a>}
+						</div>
+					</div>
 
 					<h3 className="rt-nav-icons">Welcome {this.props.currentShopper.username ? this.props.currentShopper.username : null}!</h3>
 
-					<div className="dropdown">
-						<div className="dropbtn rt-nav-icons"><img src={images(`./user.png`)}/></div>
+					<div className="dropdown-user">
+						<div className="dropbtn-user rt-nav-icons">
+							<img src={images(`./user.png`)}/>
+						</div>
 						<div className="dropdown-content">
 							<a>View Profile</a>
 			    		<a>Order History</a>
 							{this.props.currentShopper.username ? <a href="" onClick={() => this.logOut()}>Log Out</a>
 							: <a href="" onClick={() => this.logIn()}>Log In</a>}
-
   					</div>
 					</div>
-
-
-
-
 
 				</div>
 			</div>
