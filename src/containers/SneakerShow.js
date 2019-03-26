@@ -52,7 +52,7 @@ class SneakerShow extends Component {
 					<QuantitySelector increaseQty={this.increaseQty} decreaseQty={this.decreaseQty} qty={this.state.qty}/>
 					<SizeSelector changeSize={this.changeSize}/>
 					<h2 className="float-me-right">{price}</h2>
-					{localStorage.token ? <button onClick={() => this.props.addToOrder({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right">Add to Cart</button> : <Link to="/login">Log In To Buy</Link>}
+					{localStorage.token ? <button onClick={() => this.props.addToOrder({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right add-to-cart">Add to Cart</button> : <Link to="/login">Log In To Buy</Link>}
 
 
 
