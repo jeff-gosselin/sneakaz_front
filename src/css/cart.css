@@ -1,0 +1,22 @@
+/* CART */
+.cart-qty {
+	float:left;
+}
+
+.cart-price {
+	float: right;
+}
+
+.cart-img {
+	width: 65px;
+	height: auto;
+	margin-top: -24px;
+	margin-right: -16px;
+}
+
+.cart-item-name {
+	position: relative;
+	top: -7px;
+	margin-left: 35px;
+	font-weight: bold;
+}

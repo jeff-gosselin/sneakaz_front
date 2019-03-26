@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 // import {Route, Switch} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import {Redirect, withRouter} from 'react-router-dom';
+import Cart from './Cart';
 
 class TopNav extends Component {
 
@@ -71,9 +72,9 @@ class TopNav extends Component {
 							<img src={images(`./shopping-bag.png`)} alt="" />
 						</div>
 						<div className="dropdown-content">
-							<a>Cart Items</a>
-							{this.props.currentShopper.username ? <a href="" onClick={() => this.logOut()}>Check Out</a>
-							: <a href="" onClick={() => this.logIn()}>Log In</a>}
+							<div><Cart /></div>
+							{this.props.currentShopper.username ? <div onClick={() => this.logOut()}>Check Out</div>
+							: <div onClick={() => this.logIn()}>Log In</div>}
 						</div>
 					</div>
 
@@ -84,8 +85,8 @@ class TopNav extends Component {
 							<img src={images(`./user.png`)}/>
 						</div>
 						<div className="dropdown-content">
-							<a>View Profile</a>
-			    		<a>Order History</a>
+							<div>View Profile</div>
+			    		<div>Order History</div>
 							{this.props.currentShopper.username ? <a href="" onClick={() => this.logOut()}>Log Out</a>
 							: <a href="" onClick={() => this.logIn()}>Log In</a>}
   					</div>
