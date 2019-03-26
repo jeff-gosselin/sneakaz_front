@@ -7,7 +7,7 @@ class QuantitySelector extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="qty-comp">
 				<button className="qty-btn" onClick={() => this.props.decreaseQty()}>-</button>
 				<p className="qty-num">{this.props.qty}</p>
 				<button className="qty-btn" onClick={() => this.props.increaseQty()}>+</button>

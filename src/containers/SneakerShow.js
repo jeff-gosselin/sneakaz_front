@@ -47,11 +47,16 @@ class SneakerShow extends Component {
 			<div  className="sneaker-show">
 				<img className="sneaker-image-large" src={images(`./${brand}/${image}`)} alt=""/>
 				<div className="sneaker-ui">
-					<div className="brand-corner"><img className="brand-logo" src={images(`./logos/${brand}_logo.png`)} alt={brand}/></div>
+					<img className="brand-logo" src={images(`./logos/${brand}_logo.png`)} alt={brand}/>
+					<div className="brand-corner">
+						<div className="price-section">
+							<h2 className="price">${price}</h2>
+						</div>
+					</div>
 					<h2 className="float-me-left sneaker-name">{name}</h2>
 					<QuantitySelector increaseQty={this.increaseQty} decreaseQty={this.decreaseQty} qty={this.state.qty}/>
 					<SizeSelector changeSize={this.changeSize}/>
-					<h2 className="float-me-right">{price}</h2>
+
 					{localStorage.token ? <button onClick={() => this.props.addToOrder({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right add-to-cart">Add to Cart</button> : <Link to="/login">Log In To Buy</Link>}
 
 
