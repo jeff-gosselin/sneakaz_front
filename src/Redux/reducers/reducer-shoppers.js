@@ -15,7 +15,7 @@ export const shopperReducer = (state = initialState, action) => {
 				let shopper = action.payload;
 				console.log("Logged in shopper:", shopper);
 				if(shopper.orders) {
-					return {...state, shopper: shopper, orders: shopper.orders}
+					return {...state, shopper: shopper, orders: shopper.orders, currentOrder: shopper.order_items}
 				}
 
 		case 'ADD_TO_ORDER':
