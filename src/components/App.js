@@ -8,6 +8,7 @@ import MainBanner from './MainBanner';
 import {connect} from 'react-redux';
 import {getShopperWithToken} from '../Redux/actions/action-shoppers';
 import {createNewOrder} from '../Redux/actions/action-shoppers';
+import Checkout from '../containers/Checkout';
 // import {createANewOrder} from '../Redux/actions/action-shoppers';
 
 class App extends Component {
@@ -45,6 +46,7 @@ class App extends Component {
 					<Route path='/sneakers' component={Sneakers} />
 					<Route path='/sneakers/mens' component={Sneakers} />
 					<Route path='/sneakers/womens' component={Sneakers} />
+					<Route path='/checkout' component={Checkout} />
 					<Route exact path='/' render={() => {
 						return <div><MainBanner /><Sneakers /></div>
 					}} />
