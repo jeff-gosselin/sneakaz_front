@@ -46,8 +46,9 @@ class App extends Component {
 				<TopNav />
 				<Switch>
 					<Route path='/login' component={Login} />
-					<Route path='/mens' component={SneakersMens} />
-					<Route path='/womens' component={SneakersWomens} />
+					<Route path='/sneakers' component={Sneakers} />
+					<Route path='/sneakers/mens' component={SneakersMens} />
+					<Route path='/sneakers/womens' component={SneakersWomens} />
 					<Route path='/checkout' component={Checkout} />
 					<Route exact path='/' render={() => {
 						return <div><MainBanner /><Sneakers /></div>

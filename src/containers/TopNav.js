@@ -56,11 +56,11 @@ class TopNav extends Component {
 				</Link>
 
 				<div className="categoryWrapper">
-					<Link to={`/mens`}>
+					<Link to={`/sneakers/mens`}>
 						<h3 className="category">MENS</h3>
 					</Link>
 
-					<Link to={`/womens`}>
+					<Link to={`/sneakers/womens`}>
 						<h3 className="category">WOMENS</h3>
 					</Link>
 				</div>
