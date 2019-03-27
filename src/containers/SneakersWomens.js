@@ -8,7 +8,7 @@ import {Redirect, withRouter} from 'react-router-dom'
 
 import '../css/sneakers.css';
 
-class Sneakers extends Component {
+class SneakersWomens extends Component {
 	componentDidMount() {
 	    this.props.dispatch(fetchSneakers());
 	 }
@@ -66,4 +66,4 @@ const mapStateToProps = state => ({
   error: state.sneakers.error
 });
 
-export default connect(mapStateToProps)(withRouter(Sneakers));
+export default connect(mapStateToProps)(withRouter(SneakersWomens));
