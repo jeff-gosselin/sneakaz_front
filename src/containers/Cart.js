@@ -10,7 +10,6 @@ class Cart extends Component {
 		console.log("cart total:",cartTotal);
 		const orderItems = this.props.currentOrder.map(item => <CartItem key={item.id} item={item} sneakers={this.props.sneakers}/>);
 
-
 		return (
 			<div>
 				<div>{orderItems}</div>

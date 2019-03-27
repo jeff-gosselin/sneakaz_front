@@ -72,7 +72,11 @@ class TopNav extends Component {
 							<img src={images(`./shopping-bag.png`)} alt="" />
 						</div>
 						<div className="dropdown-content">
-							<div><Cart /></div>
+							{this.props.currentOrder.length === 0 ?
+								<h2 className="empty-cart">Your Cart is Empty.</h2>
+								: <div><Cart /></div>
+							}
+
 
 						</div>
 					</div>
@@ -99,7 +103,8 @@ class TopNav extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	currentShopper: state.shopper.shopper
+	currentShopper: state.shopper.shopper,
+	currentOrder: state.shopper.currentOrder
 })
 export default connect(mapStateToProps)(withRouter(TopNav))
 

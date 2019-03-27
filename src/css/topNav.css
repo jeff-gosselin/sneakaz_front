@@ -214,9 +214,16 @@ h3.rt-nav-icons {
 	position: absolute;
 	display: block;
 	top: 78px;
-
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown-user:hover .dropbtn-user,
 .dropdown-shopbag:hover .dropbtn-shopbag{background-color: rgba(94, 160, 220, 1); z-index: 8}
+
+.empty-cart {
+	font-size: 1em;
+	padding: 8px;
+	font-weight: normal;
+	font-style: italic;
+	opacity: .5;
+}
