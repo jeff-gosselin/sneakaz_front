@@ -37,13 +37,13 @@ class SneakersWomens extends Component {
     return (
 			<div>
 			<Switch>
+				<Route path='/sneakers/womens' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
+
 				<Route path='/sneakers/:id' render={(routerProps) => {
 					let id = routerProps.match.params.id;
 					let sneaker = sneakers.find(sneaker => sneaker.id == id)
 					return (sneaker ? <SneakerShow key={id} sneaker={sneaker} sneaker_id={id} /> : null)
 				}} />
-
-				<Route path='/womens' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
 
 				<Route exact path='/' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
 			</Switch>
