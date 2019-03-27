@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import '../css/cart.css'
-// import {connect} from 'react-redux';
+import '../css/cart.css';
+import {connect} from 'react-redux';
+import {deleteFromCart} from '../Redux/actions/action-shoppers';
 const images = require.context('../images/sneakers', true);
 
 
 
 class CartItem extends Component {
 	render() {
-		const {qty, image, total, item_id } = this.props.item;
+		const {qty, image, total, item_id, id} = this.props.item;
 		let sneakerImageTag = null;
 		let sneakerName = null;
 		if(this.props.sneakers.length > 0) {
@@ -24,7 +25,7 @@ class CartItem extends Component {
 					{sneakerImageTag}
 					{sneakerName}
 					<span className="cart-price">${total}</span>
-					<button className="cart-btn">x</button>
+					<button className="cart-btn" onClick={() => this.props.deleteFromCart(id)}>x</button>
 				</div>
 
 			</div>
@@ -32,9 +33,10 @@ class CartItem extends Component {
 	}
 }
 
+const mapDispatchToProps = (dispatch) => ({
+	deleteFromCart: itemId => dispatch(deleteFromCart(itemId))
+})
 
+export default connect(null, mapDispatchToProps)(CartItem)
 
-export default CartItem
-
-// {sneaker !== null ? <img alt="" src={images(`./${sneaker.brand}/${sneaker.image}`)}/> : null
-//  }
+// onClick={() => deleteFromCart(id)}

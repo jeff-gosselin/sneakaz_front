@@ -1,7 +1,7 @@
-// const createNewShopper = (shopperObj) => ({
-// 	type: 'CREATE_NEW_SHOPPER',
-// 	payload: shopperObj
-// })
+const removeFromCart = (deletedItem) => ({
+	type: 'REMOVE_FROM_ORDER',
+	payload: deletedItem
+})
 
 const loginTheShopper = (shopperObj) => ({
 	type: 'LOG_IN_SHOPPER',
@@ -168,5 +168,21 @@ export const createNewOrder = () => {
 			})
 			// .catch(error => console.log("err", error));
 
+			}
+		}
+
+		export const deleteFromCart = (itemId) => {
+			return(dispatch) => {
+		      return fetch(`http://localhost:3000/api/v1/order_items/${itemId}`, {
+		        method: 'DELETE',
+		        headers: {
+		          'Content-Type': 'application/json',
+		          Accept: 'application/json',
+		          Authorization: `Bearer ${localStorage.token}`
+		        }
+		      }).then(res => res.json())
+					.then(deletedItem => {
+						return dispatch(removeFromCart(deletedItem))
+					})
 			}
 		}

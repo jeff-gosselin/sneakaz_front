@@ -22,6 +22,18 @@ export const shopperReducer = (state = initialState, action) => {
 			console.log("The item that was added:", action.payload);
 			return {...state, currentOrder: [...state.currentOrder, action.payload]}
 
+		case 'REMOVE_FROM_ORDER':
+			const deletedItem = action.payload;
+			const order = state.currentOrder;
+			const orderWithDeletion = order.filter(item => item.id !== deletedItem.id);
+			console.log("deletedItem", deletedItem);
+			console.log("order", order);
+			console.log("orderWithDeletion", orderWithDeletion);
+			return {...state, currentOrder: orderWithDeletion}
+
+
+
+
 			// const thePayload = action.payload;
 			// console.log("The Payload", thePayload);
 			//
