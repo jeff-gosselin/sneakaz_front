@@ -14,7 +14,7 @@ class Cart extends Component {
 		return (
 			<div>
 				<div>{orderItems}</div>
-				<div><button>Checkout</button> <span className="cart-total">${cartTotal}</span></div>
+				<div><button className="checkout">Go to Checkout</button> <span className="cart-total">Total: &nbsp; ${cartTotal}</span></div>
 			</div>
 		)
 	}

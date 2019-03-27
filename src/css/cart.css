@@ -55,6 +55,10 @@
 	transition-duration: .25s;
 } */
 
+.cart-item-wrapper {
+	border-bottom: 1px solid #ddd;
+}
+
 .cart-item-wrapper:hover {
 	background-color: #ddd;
 	transition-duration: .25s;
@@ -62,7 +66,25 @@
 }
 
 .cart-total {
+	position: relative;
+	right: 24px;
+	top: 9px;
 	color: #888;
 	font-weight: bold;
 	float: right;
+}
+
+.checkout {
+	padding: 10px;
+	border-radius: 4px;
+	width: 240px;
+	font-size: .85em;
+}
+
+.checkout:hover {
+	background-color: #53E4D5;
+}
+
+.cart-item {
+	margin-top: 14px;
 }

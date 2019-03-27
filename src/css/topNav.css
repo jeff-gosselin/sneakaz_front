@@ -194,7 +194,7 @@ h3.rt-nav-icons {
 /* Links inside the dropdown */
 .dropdown-content div, .dropdown-content a {
   color: black;
-  padding: 12px 12px;
+  padding: 10px 10px;
   text-decoration: none;
   display: block;
 }
