@@ -9,6 +9,9 @@ import {connect} from 'react-redux';
 import {getShopperWithToken} from '../Redux/actions/action-shoppers';
 import {createNewOrder} from '../Redux/actions/action-shoppers';
 import Checkout from '../containers/Checkout';
+import SneakersMens from '../containers/SneakersMens';
+import SneakersWomens from '../containers/SneakersWomens';
+
 // import {createANewOrder} from '../Redux/actions/action-shoppers';
 
 class App extends Component {
@@ -43,9 +46,8 @@ class App extends Component {
 				<TopNav />
 				<Switch>
 					<Route path='/login' component={Login} />
-					<Route path='/sneakers' component={Sneakers} />
-					<Route path='/sneakers/mens' component={Sneakers} />
-					<Route path='/sneakers/womens' component={Sneakers} />
+					<Route path='/mens' component={SneakersMens} />
+					<Route path='/womens' component={SneakersWomens} />
 					<Route path='/checkout' component={Checkout} />
 					<Route exact path='/' render={() => {
 						return <div><MainBanner /><Sneakers /></div>
