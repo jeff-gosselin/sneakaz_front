@@ -183,22 +183,24 @@ h3.rt-nav-icons {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 460px;
+  min-width: 550px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 10;
+  z-index: 100;
 	right: -10px;
 }
+
+
 
 /* Links inside the dropdown */
 .dropdown-content div, .dropdown-content a {
   color: black;
-  padding: 12px 10px;
+  padding: 12px 12px;
   text-decoration: none;
   display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content div:hover, .dropdown-content a:hover {background-color: #ddd;}
+.dropdown-user .dropdown-content div:hover, .dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
 .dropdown-user:hover .dropdown-content {
@@ -218,13 +220,3 @@ h3.rt-nav-icons {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown-user:hover .dropbtn-user,
 .dropdown-shopbag:hover .dropbtn-shopbag{background-color: rgba(94, 160, 220, 1); z-index: 8}
-
-
-/* CART */
-.cart-qty {
-	float:left;
-}
-
-.cart-price {
-	float: right;
-}

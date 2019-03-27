@@ -18,12 +18,13 @@ class CartItem extends Component {
 		}
 
 		return (
-			<div>
+			<div className="cart-item-wrapper">
 				<div className="cart-item">
 					<span className="cart-qty">{qty} x </span>
 					{sneakerImageTag}
 					{sneakerName}
 					<span className="cart-price">${total}</span>
+					<button className="cart-btn">x</button>
 				</div>
 
 			</div>

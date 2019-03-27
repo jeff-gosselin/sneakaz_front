@@ -5,10 +5,17 @@ import CartItem from './CartItem';
 
 class Cart extends Component {
 	render() {
-		// console.log("cart:",this.props);
-		const orderItems = this.props.currentOrder.map(item => <CartItem key={item.id} item={item} sneakers={this.props.sneakers}/>)
+		const itemPrices = this.props.currentOrder.map(item => item.total);
+		let cartTotal = itemPrices.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+		console.log("cart total:",cartTotal);
+		const orderItems = this.props.currentOrder.map(item => <CartItem key={item.id} item={item} sneakers={this.props.sneakers}/>);
+
+
 		return (
-			<div>{orderItems}</div>
+			<div>
+				<div>{orderItems}</div>
+				<div><button>Checkout</button> <span className="cart-total">${cartTotal}</span></div>
+			</div>
 		)
 	}
 }

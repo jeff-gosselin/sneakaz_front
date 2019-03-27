@@ -73,8 +73,7 @@ class TopNav extends Component {
 						</div>
 						<div className="dropdown-content">
 							<div><Cart /></div>
-							{this.props.currentShopper.username ? <div onClick={() => this.logOut()}>Check Out</div>
-							: <div onClick={() => this.logIn()}>Log In</div>}
+
 						</div>
 					</div>
 
@@ -103,3 +102,6 @@ const mapStateToProps = (state) => ({
 	currentShopper: state.shopper.shopper
 })
 export default connect(mapStateToProps)(withRouter(TopNav))
+
+// {this.props.currentShopper.username ? <div onClick={() => this.logOut()}>Check Out</div>
+// : <div onClick={() => this.logIn()}>Log In</div>}
