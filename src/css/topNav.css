@@ -20,7 +20,7 @@ a {
 	width: 100%;
 	height: 60px;
 	top: 0;
-	background-color: rgba(23, 23, 43, .55);
+	background-color: rgba(23, 23, 43, .65);
 	/* background-color: rgba(199, 199, 209, 0); */
 	position: fixed;
 	border-bottom: 2px rgba(94, 160, 220, .25) solid;
@@ -110,7 +110,7 @@ a {
 	margin-top: 16px;
 	font-size: .9em;
 	/* color: #efefef; */
-	color: rgba(94, 160, 220, .75);
+	color: rgba(94, 160, 220, 1);
 	z-index: 20;
 }
 
