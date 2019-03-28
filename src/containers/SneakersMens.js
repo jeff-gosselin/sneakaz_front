@@ -37,7 +37,7 @@ class SneakersMens extends Component {
     return (
 			<div>
 			<Switch>
-				<Route path='/sneakers/mens' render={() => {return <div className="sneaker-wrapper">{sneakerItems}</div>}} />
+				<Route path='/sneakers/mens' render={() => {return <div className="sneaker-wrapper push-down">{sneakerItems}</div>}} />
 
 				<Route path='/sneakers/:id' render={(routerProps) => {
 					let id = routerProps.match.params.id;

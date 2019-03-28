@@ -24,7 +24,7 @@ class CartItem extends Component {
 					<span className="cart-qty">{qty} x </span>
 					{sneakerImageTag}
 					{sneakerName}
-					<span className="cart-price">${total}</span>
+					<span className="cart-price">${total.toFixed(2)}</span>
 					<button className="cart-btn" onClick={() => this.props.deleteFromCart(id)}>x</button>
 				</div>
 

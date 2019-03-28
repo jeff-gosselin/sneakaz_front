@@ -34,23 +34,23 @@ class Login extends Component {
 		return (
 			<div className="log-form">
 				<div className="signup-form">
-					<h1>Welcome! Please Log In.</h1>
-					<p><input className="login-inputs" name="username" type="text" placeholder="Username" onChange={this.onChangeHandler} value={username}/></p>
+					<h2 className="log-header">Welcome! Please Log In.</h2>
+					<p><input name="username" type="text" placeholder="Username" onChange={this.onChangeHandler} value={username} required/></p>
 
-					<p><input name="password" type="password" placeholder="Password" onChange={this.onChangeHandler} value={password}/></p>
+					<p><input name="password" type="password" placeholder="Password" onChange={this.onChangeHandler} value={password} required/></p>
 				</div>
 
 				{this.state.newUser ?
 					<div>
-						<p><input name="email" type="text" placeholder="Email" onChange={this.onChangeHandler} value={email}/></p>
+						<p><input name="email" type="email" placeholder="Email" onChange={this.onChangeHandler} value={email} required /></p>
 
-						<button className="btn" onClick={() => this.props.postNewShopper(username, password, email)}>Register</button> (POST Request)
-						<p className="forgot">Have an account? <button onClick={this.onClickChangeUserStatus}>Log In</button></p>
+						<button className="btn" onClick={() => this.props.postNewShopper(username, password, email)}>Register</button>
+						<p className="forgot"><button className="btn-su" onClick={this.onClickChangeUserStatus}>Log In</button></p>
 					</div>
 				:
 					<div>
-						<button onClick={() => this.props.loginShopper(username, password)}>Log In</button> (GET Request)
-						<p>Don't have an account? <button onClick={this.onClickChangeUserStatus}>Sign Up</button></p>
+						<button onClick={() => this.props.loginShopper(username, password)}>Log In</button>
+						<p><button className="btn-su" onClick={this.onClickChangeUserStatus}>Sign Up</button></p>
 					</div>
 				}
 			</div>

@@ -44,6 +44,10 @@ a {
 	/* border-bottom: 1px rgba(94, 160, 220, 1) solid; */
 }
 
+.categoryWrapper a {
+	color: #f9f9f9;
+}
+
 .search {
 
 	margin-top: 17px;
@@ -169,6 +173,7 @@ h3.rt-nav-icons {
 	right: 10px;
 	top: -16px;
   display: inline-block;
+	z-index: 200;
 }
 
 .dropdown-shopbag {
@@ -176,6 +181,7 @@ h3.rt-nav-icons {
 	right: 10px;
 	top: -16px;
   display: inline-block;
+	z-index: 200;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -185,7 +191,7 @@ h3.rt-nav-icons {
   background-color: #f1f1f1;
   min-width: 550px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 100;
+  z-index: 300;
 	right: -10px;
 }
 
