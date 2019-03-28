@@ -5,8 +5,8 @@ class SizeSelector extends Component {
 	render() {
 		return (
 			<div className="size">
-				<select name="Size" onChange={(e) => this.props.changeSize(e)}>
-					<option>Select Size</option>
+				<select className="size-select" name="size" onChange={(e) => this.props.changeSize(e)}>
+					<option>SIZE</option>
 					<option value="8">8</option>
 					<option value="8.5">8 &frac12;</option>
 					<option value="9">9</option>

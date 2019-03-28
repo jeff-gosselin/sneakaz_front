@@ -73,6 +73,7 @@ class TopNav extends Component {
 					</div>
 
 					<div className="dropdown-shopbag">
+						<div className="in-cart">{this.props.currentOrder.length}</div>
 						<div className="dropbtn-shopbag rt-nav-icons">
 							<img src={images(`./shopping-bag.png`)} alt="" />
 						</div>
