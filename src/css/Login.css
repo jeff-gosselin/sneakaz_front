@@ -11,7 +11,7 @@
 	padding: .5em 0;
 	border: none;
 	border-bottom: 1px solid #eaeaea;
-	padding-bottom: 1.25em;
+	padding-bottom: .75em;
 	color: #757575;
 	font-size: 1.15em;
 }
@@ -85,7 +85,7 @@
   max-width: 475px;
   background: #fff;
   position: absolute;
-  top: 52%;
+  top: 54%;
   left: 50%;
 	border-radius: 4px;
   -webkit-transform: translate(-50%,-50%);
@@ -185,5 +185,12 @@ transform: translate(0%,0%);
     &:active{
     }
   }
+
+}
+
+.log-header {
+	position: relative;
+	padding-bottom: 16px;
+	text-align: center
 
 }

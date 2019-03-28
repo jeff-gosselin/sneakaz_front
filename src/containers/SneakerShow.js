@@ -54,10 +54,11 @@ class SneakerShow extends Component {
 						</div>
 					</div>
 					<h2 className="float-me-left sneaker-name">{name}</h2>
+					<h3 className="ui-category">{category}</h3>
 					<QuantitySelector increaseQty={this.increaseQty} decreaseQty={this.decreaseQty} qty={this.state.qty}/>
 					<SizeSelector changeSize={this.changeSize}/>
 
-					{localStorage.token ? <button onClick={() => this.props.addToOrder({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right add-to-cart">Add to Cart</button> : <Link to="/login">Log In To Buy</Link>}
+					{localStorage.token ? <button onClick={() => this.props.addToOrder({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right add-to-cart">Add to Cart</button> : <Link className="login-to-buy" to="/login">Log In To Buy</Link>}
 
 
 

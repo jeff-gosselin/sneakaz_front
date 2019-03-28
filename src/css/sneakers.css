@@ -14,6 +14,7 @@ a:link {
 .sneaker-image-small {
 	width: 300px;
 	height: auto;
+	transition-duration: .25s;
 }
 
 .sneaker-image-large {
@@ -29,11 +30,10 @@ a:link {
 }
 
 .sneaker-image-small:hover {
-	-webkit-transform: scale(1.05);
-	-ms-transform: scale(1.05);
-	transform: scale(1.05);
+	-webkit-transform: scale(1.075);
+	-ms-transform: scale(1.075);
+	transform: scale(1.075);
 	transition-duration: .5s;
-	background:
 }
 
 .sneaker-wrapper {
@@ -60,6 +60,33 @@ a:link {
 	padding-left: 50px;
 	padding-top: 20px;
 	font-size: 30px;
+}
+
+.ui-category {
+	position: absolute;
+	left: 172px;
+	bottom: 17px;
+	font-weight: 100;
+	opacity: .5;
+}
+
+.login-to-buy {
+	position:absolute;
+	right: 80px;
+	top: 44px;
+	z-index: 500;
+	color: #fff;
+	border: 1px #fff solid;
+	border-radius: 2px;
+	padding: 6px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	opacity: .5;
+}
+
+.login-to-buy:hover {
+	opacity: 1;
+	transition-duration: .45s;
 }
 
 .brand-logo {
@@ -119,13 +146,17 @@ a:link {
 	padding: 20px;
 	padding-top: 14px;
 	padding-bottom: 14px;
-	border-radius: 4px;
+	border-radius: 2px;
 	background-color: #53E4D5;
 	font-size: .8em;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 2px 1px 4px rgba(0,0,0,.35);
+
 }
 
 .add-to-cart:hover {
-	background-color: rgba(255, 255, 255, 1);
+	background-color: rgba(94, 160, 220, 1);
 	transition-duration: .5s;
 }
 
