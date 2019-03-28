@@ -12,7 +12,7 @@ class Checkout extends Component {
 
 		return (
 			<div className="order-page">
-
+				<h1>This is when you would submit payment</h1>
 			</div>
 		)
 	}
