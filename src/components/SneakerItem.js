@@ -7,7 +7,6 @@ import '../css/sneakers.css';
 class SneakerItem extends Component {
 
 	handleClick = () => {
-		"CLICKED!!!!!!!!!!!!!!!!!"
 		this.props.selectedSneaker(this.props.theSelectedSneaker);
 	}
 

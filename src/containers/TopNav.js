@@ -5,13 +5,13 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Redirect, withRouter} from 'react-router-dom';
 import Cart from './Cart';
+import Search from './Search'
 
 class TopNav extends Component {
 
 	state = {
 		loggedIn: !!localStorage.token,
-		logInClicked: '',
-		searchActivate: false
+		logInClicked: ''	
 	}
 
 	logIn = () => {
@@ -28,11 +28,7 @@ class TopNav extends Component {
 		})
 	}
 
-	searchRedirect = () => {
-		this.setState({
-			searchActivate: !this.state.searchActivate
-		})
-	}
+	
 
 
 	render() {
@@ -41,11 +37,9 @@ class TopNav extends Component {
 			return <Redirect to="/login"/>
 		}
 
-		if(this.state.searchActivate === true) {
-			console.log("Search!!!");
-		}
-
 		const images = require.context('../images', true);
+
+		
 		return (
 			<div className="top-nav">
 
@@ -67,11 +61,8 @@ class TopNav extends Component {
 
 
 				<div className="right-nav">
-					<div className="search">
-						<span className="fa fa-search"></span>
-						<input onSelect={() => this.searchRedirect()} type="text" />
-					</div>
-
+					
+					<Search/>
 					<div className="dropdown-shopbag">
 						{this.props.currentOrder.length > 0 ? <div className="in-cart">{this.props.currentOrder.length}</div> : null }
 						<div className="dropbtn-shopbag rt-nav-icons">
@@ -114,5 +105,9 @@ const mapStateToProps = (state) => ({
 })
 export default connect(mapStateToProps)(withRouter(TopNav))
 
-// {this.props.currentShopper.username ? <div onClick={() => this.logOut()}>Check Out</div>
-// : <div onClick={() => this.logIn()}>Log In</div>}
+// {/* SEARCH BAR */}
+// <div className="search">
+// <span className="fa fa-search"></span>
+// <input onChange={() => this.searchFilter()} onBlur={() => this.searchOff()} type="text" />
+// </div>
+// {/* END SEARCH BAR */}

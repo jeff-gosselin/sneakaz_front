@@ -39,7 +39,6 @@ class SneakerShow extends Component {
 	}
 
 	render() {
-		console.log("Props?", this.props);
 		const {name, category, price, brand, image, id} = this.props.sneaker
 		const images = require.context('../images/sneakers', true);
 

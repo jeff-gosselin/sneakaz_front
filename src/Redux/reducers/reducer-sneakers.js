@@ -8,7 +8,8 @@ const initialState = {
   sneakers: [],
 	selectedSneaker: {},
 	loading: false,
-  error: null
+  error: null,
+  searchActivated: false
 }
 
 export default function sneakerReducer(state = initialState, action) {
@@ -50,6 +51,14 @@ export default function sneakerReducer(state = initialState, action) {
 	      return {
 					 ...state,
 					 selectedSneaker: action.payload
+				 }
+      }
+      
+      case "SEARCH_TOGGLE": {
+        console.log("TOGGLED!");
+	      return {
+					//  ...state,
+					//  searchActivated: action.payload
 				 }
 	    }
 

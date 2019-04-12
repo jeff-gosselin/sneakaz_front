@@ -11,20 +11,14 @@ import '../css/sneakers.css';
 class Sneakers extends Component {
 	componentDidMount() {
 	    this.props.dispatch(fetchSneakers());
-	 }
+	}
+	
 	render() {
 
 		const {error, loading, sneakers} = this.props;
-		const sneakerMens = sneakers.filter(sneaker => sneaker.category === "mens");
-		const sneakerWomens = sneakers.filter(sneaker => sneaker.category === "womens");
 
 		const sneakerItems = sneakers.map(sneaker => {
 		 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
-
-
-
-
-
 
 		if (error) {
       return <div>Error! {error.message}</div>;

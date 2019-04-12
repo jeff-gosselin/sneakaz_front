@@ -15,6 +15,7 @@ import SneakersWomens from '../containers/SneakersWomens';
 // import {createANewOrder} from '../Redux/actions/action-shoppers';
 
 class App extends Component {
+	
 	componentDidMount() {
 		if(localStorage.token) {this.props.getShopperWithToken();}
 	 }

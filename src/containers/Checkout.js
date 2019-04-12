@@ -24,13 +24,3 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(Checkout)
-
-// <div className="order">
-// 		<div className="order-page-item">{orderItems}</div>
-// 			<div>
-//
-// 					<button className="checkout">Purchase</button>
-//
-// 				<span>Total: &nbsp; ${cartTotal}</span>
-// 			</div>
-// </div>
