@@ -29,12 +29,14 @@ class Search extends Component {
 
     render() {
         let searchWindow = null;
-        // console.log("searchWindow:", this.props.items);
-		const listItems = this.props.items.map(item => <SearchListItem key={item.id} item={item} />);
+        
+        const filteredItems = this.props.items.filter(item => item.name.toLowerCase().includes(this.state.search.toLowerCase()));    
+        console.log("Filtered:", filteredItems);
+		const listItems = filteredItems.map(item => <SearchListItem key={item.id} item={item} />);
 
         if(this.state.searchActivate){
             console.log("Search: TRUE", this.state.search);
-            searchWindow = <div className="searchWindow">{listItems}</div>;
+            searchWindow = <div className="search-window">{listItems}</div>;
         } else {
             console.log("Search: FALSE");
         
