@@ -21,10 +21,11 @@ class Search extends Component {
     }
     
     deactivate = () => {
-        console.log("Deactivated");  
-        this.setState({
-            searchActivate: false
-        })    
+        console.log("Deactivated");
+        setTimeout(() => this.setState({searchActivate: false}), 150);  
+        
+            
+            
     }
 
     render() {
@@ -48,7 +49,7 @@ class Search extends Component {
         return (
             <div className="search">
                 <span className="fa fa-search"></span>
-                <input name="search" onChange={this.activate} onBlur={this.deactivate} type="text" />
+                <input name="search" onChange={this.activate} onBlur={this.deactivate} type="text" autocomplete="off" />
                 {searchWindow}
             </div>
         )
@@ -60,3 +61,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(Search)
+
+
+// onBlur={this.deactivate}
