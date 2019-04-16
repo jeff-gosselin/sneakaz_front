@@ -108,7 +108,7 @@
 
 	background-color: #fff;
 	transition-duration: 1s;
-	width: 170px;
+	width: 125px;
 	border: 0px solid rgba(94, 160, 220, 1);
 	outline:none;
 }
@@ -221,6 +221,7 @@ h3.rt-nav-icons {
 
 }
 
+
 @keyframes bounce {
 
 	0% {
@@ -289,10 +290,15 @@ h3.rt-nav-icons {
 
 }
 
+
 .dropdown-shopbag:hover .dropdown-content {
 	position: absolute;
 	display: block;
 	top: 78px;
+}
+
+#logout {
+	padding: 20px;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */

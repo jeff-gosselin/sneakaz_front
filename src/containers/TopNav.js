@@ -78,9 +78,10 @@ class TopNav extends Component {
 						</div>
 					</div>
 
-					<h3 className="rt-nav-icons">Welcome {this.props.currentShopper.username ? this.props.currentShopper.username : null}!</h3>
+					<h3 className="rt-nav-icons">{this.props.currentShopper.username ? `Hi, ${this.props.currentShopper.username}!` : null}</h3>
 
 					<div className="dropdown-user">
+
 						<div className="dropbtn-user rt-nav-icons">
 							<img src={images(`./user.png`)}/>
 						</div>
@@ -88,13 +89,15 @@ class TopNav extends Component {
 							<Link to={`/profile`}>
 								<div>View Profile</div>
 							</Link>
-							
+
 							<Link to={`/orders`}>
 			    				<div>Order History</div>
 							</Link>
 
-							{this.props.currentShopper.username ? <a href="" onClick={() => this.logOut()}>Log Out</a>
-							: <a href="" onClick={() => this.logIn()}>Log In</a>}
+							{this.props.currentShopper.username ? <a id="logout" href="" onClick={() => this.logOut()}>Log Out</a>
+							: 	<Link to="/login">
+									<div>Log In</div>
+								</Link>}
   						</div>
 					</div>
 
