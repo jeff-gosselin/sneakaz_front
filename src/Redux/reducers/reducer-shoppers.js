@@ -1,7 +1,8 @@
 const initialState = {
 	shopper: {},
 	currentOrder: [],
-	orders: []
+	orders: [],
+	login: ""
 }
 
 export const shopperReducer = (state = initialState, action) => {
@@ -17,6 +18,11 @@ export const shopperReducer = (state = initialState, action) => {
 				if(shopper.orders) {
 					return {...state, shopper: shopper, orders: shopper.orders, currentOrder: shopper.order_items}
 				}
+
+		case 'LOG_IN_FAILED':
+				console.log("Login Attempt:", action.payload);
+				
+				return {...state, login: action.payload}
 
 		case 'ADD_TO_ORDER':
 			console.log("The item that was added:", action.payload);

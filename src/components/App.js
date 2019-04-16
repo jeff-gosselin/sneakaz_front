@@ -51,6 +51,8 @@ class App extends Component {
 					<Route path='/sneakers/womens' component={SneakersWomens} />
 					<Route path='/sneakers' component={Sneakers} />
 					<Route path='/checkout' component={Checkout} />
+					<Route path='/orders' component={Checkout} />
+					<Route path='/profile' component={Checkout} />
 					<Route exact path='/' render={() => {
 						return <div><MainBanner /><Sneakers /></div>
 					}} />

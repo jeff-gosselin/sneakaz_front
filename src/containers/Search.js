@@ -12,7 +12,6 @@ class Search extends Component {
     }
     
     activate = (e) => {
-        console.log("onChange:","Activated");
         this.setState({
             searchActivate: true,
             search: e.target.value
@@ -20,26 +19,30 @@ class Search extends Component {
              
     }
     
-    deactivate = () => {
-        console.log("Deactivated");
-        setTimeout(() => this.setState({searchActivate: false}), 150);  
+    deactivate = (e) => {
+        e.target.value = "";
+        setTimeout(() => this.setState({
+            searchActivate: false,
+            search: ""
+        }), 150);  
         
-            
+        console.log("SEARCH:", this.state.search);    
             
     }
 
     render() {
         let searchWindow = null;
         
+        
         const filteredItems = this.props.items.filter(item => item.name.toLowerCase().includes(this.state.search.toLowerCase()));    
-        console.log("Filtered:", filteredItems);
+        
 		const listItems = filteredItems.map(item => <SearchListItem key={item.id} item={item} />);
 
         if(this.state.searchActivate){
-            console.log("Search: TRUE", this.state.search);
+            
             searchWindow = <div className="search-window">{listItems}</div>;
         } else {
-            console.log("Search: FALSE");
+            
         
         }
         

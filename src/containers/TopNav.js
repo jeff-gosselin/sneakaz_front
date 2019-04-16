@@ -85,11 +85,17 @@ class TopNav extends Component {
 							<img src={images(`./user.png`)}/>
 						</div>
 						<div className="dropdown-content">
-							<div>View Profile</div>
-			    		<div>Order History</div>
+							<Link to={`/profile`}>
+								<div>View Profile</div>
+							</Link>
+							
+							<Link to={`/orders`}>
+			    				<div>Order History</div>
+							</Link>
+
 							{this.props.currentShopper.username ? <a href="" onClick={() => this.logOut()}>Log Out</a>
 							: <a href="" onClick={() => this.logIn()}>Log In</a>}
-  					</div>
+  						</div>
 					</div>
 
 				</div>

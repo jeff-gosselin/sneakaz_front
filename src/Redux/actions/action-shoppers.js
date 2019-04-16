@@ -8,6 +8,11 @@ const loginTheShopper = (shopperObj) => ({
 	payload: shopperObj
 })
 
+const loginFailed = (status) => ({
+	type: 'LOG_IN_FAILED',
+	payload: status
+})
+
 
 const startNewOrder = (order) => ({
 	type: 'START_NEW_ORDER',
@@ -38,7 +43,8 @@ export const postNewShopper = (username, password, email) => {
         localStorage.setItem("token", data.jwt);
 				return dispatch(loginTheShopper(data.shopper))
       })
-		.catch(error => console.log("err", error));
+		.catch(() => dispatch(loginFailed("fail")));
+		
 
 
 
@@ -46,7 +52,7 @@ export const postNewShopper = (username, password, email) => {
 }
 
 export const loginShopper = (username, password) => {
-	console.log("username:", username, "password:", password);
+	
 	return (dispatch) => {
 		return fetch('http://localhost:3000/api/v1/login', {
 			method: "POST",
@@ -60,11 +66,10 @@ export const loginShopper = (username, password) => {
 		})
 		.then(response => response.json())
 		.then(data => {
-			console.log("This is data.shopper.name:", data.shopper);
         localStorage.setItem("token", data.jwt);
 				return dispatch(loginTheShopper(data.shopper))
       })
-		.catch(error => console.log("err", error));
+		.catch(() => dispatch(loginFailed("fail")))
 
 
 

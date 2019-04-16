@@ -2,6 +2,16 @@
 
 /* *{box-sizing:border-box;} */
 
+.invisible {
+  display: none;
+}
+
+.please {
+  color: red;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 100;
+}
 
 .log-form input{
 	display: block;
@@ -35,28 +45,17 @@
 	background-color: #53E4D5;
 	box-shadow: inset 0px 1px 0px fadeout(white, 80%);
 	font-size: .9em;
-	&:hover {
-		background: lighten(@blue, 5%);
-	}
-	&:active {
-		background: #fff;
-		box-shadow: inset 0px 1px 1px fadeout(black, 90%);
-	}
-	&:focus {
-		outline: none;
-	}
+	
 }
 
 .log-form button.btn-su {
 	background-color: rgba(94, 160, 220, 1);
 	color: #fff;
-
 }
 
 .log-form button.btn-su:hover {
 	background-color: rgba(94, 160, 220, .85);
 	color: #fff;
-
 }
 
 .log-form button:focus {
@@ -71,8 +70,6 @@
 	background-color: rgba(94, 160, 220, .65);
 }
 
-@grey:#2a2a2a;
-@blue:#1fb5bf;
 .log-form {
 	display: block;
 	width: 100%;
@@ -89,24 +86,13 @@
   left: 50%;
 	border-radius: 4px;
   -webkit-transform: translate(-50%,-50%);
--moz-transform: translate(-50%,-50%);
--o-transform: translate(-50%,-50%);
--ms-transform: translate(-50%,-50%);
-transform: translate(-50%,-50%);
-
+  -moz-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   box-shadow: 0px 2px 5px rgba(0,0,0,.25);
 
-  @media(max-width: 40em){
-    width: 95%;
-    position: relative;
-    margin: 2.5% auto 0 auto;
-    left: 0%;
-  -webkit-transform: translate(0%,0%);
--moz-transform: translate(0%,0%);
--o-transform: translate(0%,0%);
--ms-transform: translate(0%,0%);
-transform: translate(0%,0%);
-  }
+  
 
 
 
@@ -151,16 +137,7 @@ transform: translate(0%,0%);
     color: white;
     margin-right: .5em;
     box-shadow: inset 0px 1px 0px fadeout(white, 80%);
-    &:hover {
-      background: lighten(@blue, 5%);
-    }
-    &:active {
-      background: @blue;
-      box-shadow: inset 0px 1px 1px fadeout(black, 90%);
-    }
-    &:focus {
-      outline: none;
-    }
+    
   }
 
 	.btn:hover {
@@ -176,14 +153,7 @@ transform: translate(0%,0%);
     font-size: .75em;
     margin:0;
     padding: 0;
-    float: right;
-
-
-    &:hover {
-      color:darken(@blue, 5%);
-    }
-    &:active{
-    }
+    float: right; 
   }
 
 }
