@@ -8,7 +8,8 @@ import MainBanner from './MainBanner';
 import {connect} from 'react-redux';
 import {getShopperWithToken} from '../Redux/actions/action-shoppers';
 import {createNewOrder} from '../Redux/actions/action-shoppers';
-import Checkout from '../containers/Checkout';
+import Address from '../containers/Address';
+import Payment from '../containers/Payment';
 import SneakersMens from '../containers/SneakersMens';
 import SneakersWomens from '../containers/SneakersWomens';
 
@@ -50,9 +51,10 @@ class App extends Component {
 					<Route path='/sneakers/mens' component={SneakersMens} />
 					<Route path='/sneakers/womens' component={SneakersWomens} />
 					<Route path='/sneakers' component={Sneakers} />
-					<Route path='/checkout' component={Checkout} />
-					<Route path='/orders' component={Checkout} />
-					<Route path='/profile' component={Checkout} />
+					<Route path='/address' component={Address} />
+					<Route path='/payment' component={Payment} />
+					<Route path='/orders' component={Address} />
+					<Route path='/profile' component={Payment} />
 					<Route exact path='/' render={() => {
 						return <div><MainBanner /><Sneakers /></div>
 					}} />

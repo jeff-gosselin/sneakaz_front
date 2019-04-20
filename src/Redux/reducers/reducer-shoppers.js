@@ -9,12 +9,20 @@ export const shopperReducer = (state = initialState, action) => {
 	switch(action.type) {
 		case 'START_NEW_ORDER':
 			console.log("??????????", action.payload);
-			return {...state, orders: [...state.orders, action.payload]}
+			return {...state, currentOrder: [], orders: [...state.orders, action.payload]}
 
 		case 'LOG_IN_SHOPPER':
 				// check order status
 				let shopper = action.payload;
 				console.log("Logged in shopper:", shopper);
+				if(shopper.orders.length > 0) {
+					const currentOrder = shopper.orders.filter(order => order.shopper_id === shopper.id && order.complete === false);
+					const currentOrderNumber = currentOrder[0].id;
+					const itemsInCart = shopper.order_items.filter(item => item.order_id === currentOrderNumber);
+					console.log("Current items in cart: ", itemsInCart);
+					return {...state, shopper: shopper, orders: shopper.orders, currentOrder: itemsInCart}
+				}
+
 				if(shopper.orders) {
 					return {...state, shopper: shopper, orders: shopper.orders, currentOrder: shopper.order_items}
 				}

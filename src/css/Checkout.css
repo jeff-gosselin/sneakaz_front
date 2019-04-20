@@ -4,3 +4,48 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
+
+#chkbx {
+	position: relative;
+	top: 2px;
+	display: inline;
+	width: 50px;
+}
+
+
+.creditcards {
+	width: 100%;
+	text-align: center;
+}
+
+.creditcards div {
+	width: 30% !important;
+	margin-right: 0%;
+	color: #777;
+	text-align: center;
+	line-height: 40px;
+}
+
+.creditcards div {
+	background-color: #eee;
+	display: inline-block;
+}
+
+.creditcards div:hover {
+	background-color: #ebebeb;
+	cursor: pointer;
+}
+
+.creditcards div:active {
+	background-color: #999;
+}
+
+.creditcards div:nth-child(2) {
+	margin: 0 5% 0 5%;
+}
+
+.creditcards div.selected {
+	background-color: #53E4D5;
+	width: 30%;
+	color: #000;
+}

@@ -21,7 +21,7 @@ class Cart extends Component {
 				<div className="order-items">{orderItems}</div>
 				<div>
 
-						<Link className="checkout" to={`/checkout`}>Go to Checkout</Link>
+						<Link className="checkout" to={`/address`}>Go to Checkout</Link>
 					<span className="cart-total">Total: &nbsp; ${cartTotal}</span>
 				</div>
 			</div>

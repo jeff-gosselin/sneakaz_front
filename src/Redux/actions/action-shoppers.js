@@ -98,6 +98,34 @@ export const getShopperWithToken = () => {
   }
 }
 
+export const completeOrder = (orderId, cartTotal) => {
+	console.log("Testing my 1st data input - orderId: ", orderId);
+	console.log("Testing my 2nd data input - cartTotal: ", cartTotal);
+	
+	return (dispatch) => {
+		return fetch(`http://localhost:3000/api/v1/orders/${orderId}`, {
+		method: 'PATCH',
+		body: JSON.stringify({
+			total: cartTotal,
+			complete: true
+		}),
+		headers: {
+			"Content-Type": "application/json",
+			Accept: "application/json",
+			Authorization: `Bearer ${localStorage.token}`
+		}
+		
+	})
+	.then(response => response.json())
+	.then(data => {
+		console.log("Completed order: ", data)
+		return dispatch(createNewOrder())
+	})
+	}
+}
+
+
+
 export const createNewOrder = () => {
 	return(dispatch, getState) => {
 		const shopper_id = getState().shopper.shopper.id;
