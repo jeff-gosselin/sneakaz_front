@@ -19,7 +19,8 @@ class Sneakers extends Component {
 
 		const sneakerItems = sneakers.map(sneaker => {
 		 return <SneakerItem key={sneaker.id} itemSize="small" sneaker_id={sneaker.id} theSelectedSneaker={sneaker} />});
-
+			console.log("Fuck:", sneakerItems);
+			
 		if (error) {
       return <div>Error! {error.message}</div>;
     }

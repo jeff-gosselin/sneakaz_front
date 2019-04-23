@@ -10,6 +10,7 @@ import {getShopperWithToken} from '../Redux/actions/action-shoppers';
 import {createNewOrder} from '../Redux/actions/action-shoppers';
 import Address from '../containers/Address';
 import Payment from '../containers/Payment';
+import OrderHistory from '../containers/OrderHistory';
 import SneakersMens from '../containers/SneakersMens';
 import SneakersWomens from '../containers/SneakersWomens';
 
@@ -53,7 +54,7 @@ class App extends Component {
 					<Route path='/sneakers' component={Sneakers} />
 					<Route path='/address' component={Address} />
 					<Route path='/payment' component={Payment} />
-					<Route path='/orders' component={Address} />
+					<Route path='/orders' component={OrderHistory} />
 					<Route path='/profile' component={Payment} />
 					<Route exact path='/' render={() => {
 						return <div><MainBanner /><Sneakers /></div>

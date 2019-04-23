@@ -9,7 +9,8 @@ import {Redirect, withRouter} from 'react-router-dom'
 
 class Payment extends Component {
 	state = {
-		card: null
+		card: null,
+		orderSubmitted: false
 	}
 
 	cardtype = (e,cardName) => {
@@ -20,14 +21,19 @@ class Payment extends Component {
 
 	submitOrder = (e, cartTotal) => {
 		e.preventDefault();
+		this.setState({
+			orderSubmitted: true
+		});
+
 		console.log("Your order has been submitted: ", this.props.orders[this.props.orders.length - 1].id);
 		let orderId = this.props.orders[this.props.orders.length - 1].id;
 		return this.props.makePurchase(orderId, cartTotal)
 	}
 	render() {
-		console.log("card: ", this.state.card);
-		if(this.props.newOrderCreated) {
+		console.log("test: ", this.props.currentOrder);
+		if(this.props.currentOrder.length < 1) {
 			return <Redirect to="/orders"/>
+			
 		}
 		
 		const itemPrices = this.props.currentOrder.map(item => item.total);
