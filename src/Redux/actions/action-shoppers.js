@@ -99,15 +99,25 @@ export const getShopperWithToken = () => {
 }
 
 export const completeOrder = (orderId, cartTotal) => {
-	console.log("Testing my 1st data input - orderId: ", orderId);
-	console.log("Testing my 2nd data input - cartTotal: ", cartTotal);
+
+
 	
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0');
+	var yyyy = today.getFullYear();
+
+	today = mm + '/' + dd + '/' + yyyy;
+	console.log("Testing the order date: ", typeof(today));
+
+
 	return (dispatch) => {
 		return fetch(`http://localhost:3000/api/v1/orders/${orderId}`, {
 		method: 'PATCH',
 		body: JSON.stringify({
 			total: cartTotal,
-			complete: true
+			complete: true,
+			date: today
 		}),
 		headers: {
 			"Content-Type": "application/json",
@@ -119,7 +129,7 @@ export const completeOrder = (orderId, cartTotal) => {
 	.then(response => response.json())
 	.then(data => {
 		console.log("Completed order: ", data)
-		
+
 		return dispatch(createNewOrder())
 	})
 	}
@@ -140,7 +150,10 @@ export const createNewOrder = () => {
 			body: JSON.stringify({
 				shopper_id: shopper_id,
 				total: total,
-				complete: complete}),
+				complete: complete,
+				date: 'tbd'
+			
+			}),
 			headers: {
 				"Content-Type": "application/json",
 				Accept: "application/json",

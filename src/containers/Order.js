@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/Checkout.css';
 import {connect} from 'react-redux';
-
+import { FaChevronDown } from 'react-icons/fa';
 
 class Order extends Component {
 	state = {
@@ -16,15 +16,16 @@ class Order extends Component {
 
 	render() {
 		
-		console.log("BANG!");
+		console.log("BANG!", this.props);
         
 		return (
 			
 				<div className="order">
 
                     <p className="order-number">{this.props.orderId}</p>
+					<p className="order-date">{this.props.date}</p>
                     <h3 className="order-total">{this.props.total}</h3>
-                    <span className="order-dropdown-arrow">v</span>
+                    <span className="order-dropdown-arrow">< FaChevronDown /></span>
 				</div>
 			
 		)

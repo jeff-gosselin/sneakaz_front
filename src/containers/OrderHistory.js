@@ -4,7 +4,8 @@ import CartItem from './CartItem';
 import '../css/Checkout.css';
 import {Link} from 'react-router-dom';
 import {Redirect, withRouter} from 'react-router-dom';
-import Order from './Order'
+import Order from './Order';
+
 
 class OrderHistory extends Component {
 	state = {
@@ -43,12 +44,8 @@ class OrderHistory extends Component {
 			return <Redirect to="/"/>
 		}
 
-		console.log("Shopper Order History: ", this.state.orderHistory);
 
-		// const completedOrders = this.props.orders.filter(order => order.total !== 0);
-		
-		// const orderList = completedOrders.map(order => <Order key={order.id} total={order.total} orderId={order.id} />).reverse();
-		const orderList = this.state.orderHistory.map(order => <Order key={order.id} total={order.total} orderId={order.id} />);
+		const orderList = this.state.orderHistory.map(order => <Order key={order.id} date={order.date} total={order.total} orderId={order.id} />);
 		console.log("BigBang!!!");
 		
 		return (
@@ -56,10 +53,9 @@ class OrderHistory extends Component {
 				<div className="orders-wrapper">
 					<div className="order-header">
 						<h3>Most Recent Order</h3>
-						<span>Date</span>
 						<span>Order #</span>
+						<span>Date</span>
 						<span>Total</span>
-						<span className="order-refresh" onClick={() => window.location.reload(true)}>Refresh</span>
 						<hr />
 					</div>
 
@@ -68,21 +64,22 @@ class OrderHistory extends Component {
 					</div>
 
 				</div>
+
 				<div className="orders-wrapper">
-				<div className="order-header">
-					<h3>Previous Orders</h3>
-					<span>Date</span>
-					<span>Order #</span>
-					<span>Total</span>
-					<hr />
-				</div>
+					<div className="order-header">
+						<h3>Previous Orders</h3>
+						<span>Order #</span>
+						<span>Date</span>
+						<span>Total</span>
+						<hr />
+					</div>
 
-				<div className="history">
-					{orderList.slice(1)}		
-				</div>
+					<div className="history">
+						{orderList.slice(1)}		
+					</div>
 
+				</div>
 			</div>
-		</div>
 
 			
 		)

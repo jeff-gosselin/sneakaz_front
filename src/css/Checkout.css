@@ -52,8 +52,8 @@
 
 
 .order-page-wrapper {
-	margin-top: 40%;
-	transform: translateY(-50%);
+	margin-top: 200px;
+	
 }
 
 .order-refresh:hover {
@@ -66,7 +66,7 @@
 	padding: 1.5em;
 	margin: 0 auto;
 	margin-bottom: 150px;
-	min-width: 320px;
+	min-width: 478px;
 	max-width: 1280px;
 	z-index: 1;
 	  
@@ -91,6 +91,7 @@
 	box-shadow: 0px 2px 5px rgba(0,0,0,.25);
 	height: 70px;
 	position: relative;
+	color: #333;
 	
 }
 
@@ -108,7 +109,17 @@
 
 .order-number {
 	display: inline-block;
-	float: left;
+	top: 50%;
+	transform: translateY(-128%);
+	position: absolute;
+}
+
+.order-date {
+	display: inline-block;
+	top: 50%;
+	transform: translateY(-128%);
+	position: absolute;
+	padding-left: 140px;
 }
 
 .order-dropdown-arrow {
@@ -127,12 +138,18 @@
 	position: absolute;
 	width: 100%;
 	top: -100px;
-	left: 0px;
-	
+	left: 0px;	
 }
 
+
+
 .order-header span {
-	padding-right: 60px;
+	padding-right: 80px;
 	padding-left: 20px;
 	color: rgba(0,0,0,.35);
+}
+
+.order-header span:nth-of-type(3) {
+	float: right;
+	margin-right: 40px;
 }
