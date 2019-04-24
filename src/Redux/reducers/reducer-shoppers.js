@@ -47,7 +47,6 @@ export const shopperReducer = (state = initialState, action) => {
 
 
 
-
 			// const thePayload = action.payload;
 			// console.log("The Payload", thePayload);
 			//

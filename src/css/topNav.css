@@ -57,6 +57,7 @@
 	/* background-color: rgba(199, 199, 209, 0); */
 	position: fixed;
 	border-bottom: 2px rgba(94, 160, 220, .25) solid;
+	z-index: 2;
 }
 
 .right-nav {

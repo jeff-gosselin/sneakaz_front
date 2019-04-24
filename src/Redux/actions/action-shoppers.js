@@ -119,6 +119,7 @@ export const completeOrder = (orderId, cartTotal) => {
 	.then(response => response.json())
 	.then(data => {
 		console.log("Completed order: ", data)
+		
 		return dispatch(createNewOrder())
 	})
 	}
