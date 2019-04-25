@@ -3,38 +3,44 @@ import '../css/Checkout.css';
 import {connect} from 'react-redux';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import {fetchSneakers} from '../Redux/actions/action-sneakers';
+import {getShopperWithToken} from '../Redux/actions/action-shoppers';
 import Item from './Item';
 
 class Order extends Component {
 	state = {
-		itemsInOrder: [],
+		// orderedItems: [],
 		expand: false
 	}
 
 	componentDidMount = () => {
 		
 		this.props.dispatch(fetchSneakers());
+		
 
-		this.setState({
-			itemsInOrder: this.props.orderItems.filter( item => item.order_id === this.props.orderId)
-		})
+		// this.setState({
+		// 	orderedItems: this.props.orderedItems.filter( item => item.order_id === this.props.orderId)
+		// })
 	}
 	
 	clickHandler = () => {
+
 		this.setState({
-			expand: !this.state.expand
+			expand: !this.state.expand,
 		})
 	}
 
 	render() {
 		console.log("Clicked: ", this.state.expand);
 		
-		console.log("items in the order: ", this.state.itemsInOrder);
+		
 		console.log("All of the items: ", this.props.allItems);
-
-
-
-		const items = this.state.itemsInOrder.map(item => <Item item={item} allItems={this.props.allItems} />);
+		const itemsInOrder = this.props.orderedItems.filter( item => item.order_id === this.props.orderId)
+		console.log("itemsInOrder", itemsInOrder);
+		
+		console.log("Ordered Items: ", this.props.orderedItems);
+		console.log("this.props.orderId", this.props.orderId);
+		
+		const items = itemsInOrder.map(item => <Item key={item.id} item={item} allItems={this.props.allItems} />);
 		
 		return (
 			
@@ -43,7 +49,7 @@ class Order extends Component {
                     <p className="order-number">{this.props.orderId}</p>
 					<p className="order-date">{this.props.date}</p>
                     <h3 className="order-total">${this.props.total}</h3>
-		<span onClick={this.clickHandler} className="order-dropdown-arrow">{this.state.expand ? < FaChevronUp /> : < FaChevronDown />}</span>
+					<span onClick={this.clickHandler} className="order-dropdown-arrow">{this.state.expand ? < FaChevronUp /> : < FaChevronDown />}</span>
 					{this.state.expand ? <div className="order-history-items">{items}</div> : null}
 
 				</div>
@@ -54,7 +60,8 @@ class Order extends Component {
 
 const mapStateToProps = (state) => ({
 	orderItems: state.shopper.shopper.order_items,
-	allItems: state.sneakers.sneakers
+	allItems: state.sneakers.sneakers,
+	shopper: state.shopper.shopper
 })
 
 

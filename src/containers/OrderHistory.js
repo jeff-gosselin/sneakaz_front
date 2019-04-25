@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {fetchSneakers} from '../Redux/actions/action-sneakers';
 import CartItem from './CartItem';
 import '../css/Checkout.css';
 import {Link} from 'react-router-dom';
@@ -9,10 +10,12 @@ import Order from './Order';
 
 class OrderHistory extends Component {
 	state = {
-		orderHistory: []
+		orderHistory: [],
+		orderedItems: []
 	}
 	
 	componentDidMount = () => {
+
 		fetch('http://localhost:3000/api/v1/orders',{
 			method: 'GET',
 			headers: {
@@ -24,17 +27,26 @@ class OrderHistory extends Component {
 		.then(res => res.json())
 		.then(data => {
 			
-			console.log("this.props.shopper.id", this.props.shopper.id);
+			console.log("data: ", data);
+			console.log("this.props.shopper.order_items: ", this.props.shopper.order_items);
+
 
 			if(localStorage.token) {
 				const thisShoppersOrders = data.filter(order =>  order.shopper_id === this.props.shopper.id );
 				const orderHistory = thisShoppersOrders.filter(order => order.total !== 0).reverse();
-
-				return this.setState({ orderHistory })
+				const orderedItems = this.props.shopper.order_items;
+				const shopperItems = orderHistory.map(order => order.order_items);
+				
+			
+				
+				
+				return this.setState({ 
+					orderHistory, 
+					orderedItems: shopperItems.flat()
+				
+				})
 			}
-			
-			
-			
+				
 		})
 		
 	}
@@ -45,8 +57,8 @@ class OrderHistory extends Component {
 		}
 
 
-		const orderList = this.state.orderHistory.map(order => <Order key={order.id} date={order.date} total={order.total} orderId={order.id} />);
-		console.log("BigBang!!!");
+		const orderList = this.state.orderHistory.map(order => <Order key={order.id} date={order.date} total={order.total} orderId={order.id} orderedItems={this.state.orderedItems} />);
+		
 		
 		return (
 			<div className="order-page-wrapper">
