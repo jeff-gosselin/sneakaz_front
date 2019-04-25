@@ -52,7 +52,7 @@
 
 
 .order-page-wrapper {
-	margin-top: 200px;
+	margin-top: 240px;
 	
 }
 
@@ -67,7 +67,7 @@
 	margin: 0 auto;
 	margin-bottom: 150px;
 	min-width: 478px;
-	max-width: 1280px;
+	max-width: 1100px;
 	z-index: 1;
 	  
 }
@@ -89,16 +89,17 @@
   	left: -24px;
 	background: #fff;
 	box-shadow: 0px 2px 5px rgba(0,0,0,.25);
-	height: 70px;
+	min-height: 70px;
 	position: relative;
 	color: #333;
+	margin-bottom: 4px;
 	
 }
 
 .order-total {
 
 	display: inline-block;
-	top: 50%;
+	top: 43px;
 	right: 100px;
 	transform: translateY(-128%);
 	position: absolute;
@@ -109,17 +110,45 @@
 
 .order-number {
 	display: inline-block;
-	top: 50%;
+	top: 43px;
 	transform: translateY(-128%);
 	position: absolute;
 }
 
 .order-date {
 	display: inline-block;
-	top: 50%;
+	top: 43px;
 	transform: translateY(-128%);
 	position: absolute;
 	padding-left: 140px;
+}
+
+.order-history-items {
+	position: relative;
+	margin: 0 auto;
+	margin-top: 78px;
+	margin-bottom: 30px;
+	border-top: 1px dashed rgb(0, 0, 0, .1);
+	width: 90%;
+
+	
+}
+
+.item-history {
+	display: block;
+}
+
+.item-info-block {
+	position: relative;
+	display: inline-block;
+	top: -12px;
+	padding-top: 30px;
+	margin-left: 40px;
+}
+
+.item-info-block h3 {
+	font-size: 1.5em;
+	line-height: .25em;
 }
 
 .order-dropdown-arrow {
@@ -127,7 +156,7 @@
 	display: inline-block;
 	position: absolute;
 	right: 0px;
-	top: 50%;
+	top: 43px;
 	transform: translateY(-50%);
 	padding: 10px 20px;
 	border-left: 1px solid rgba(0,0,0,.15);
