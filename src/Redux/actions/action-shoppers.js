@@ -172,6 +172,7 @@ export const createNewOrder = () => {
 	}
 
 	export const addToOrder = (itemObj) => {
+		
 		return(dispatch, getState) => {
 			const orders = getState().shopper.orders;
 

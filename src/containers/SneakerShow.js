@@ -14,38 +14,46 @@ class SneakerShow extends Component {
 
 	state = {
 		qty: 1,
-		size: 0
+		size: 0,
+		message: false
 	}
 
 	decreaseQty = () => {
-		console.log("-");
 		this.setState({
 			qty: this.state.qty > 1 ? this.state.qty - 1 : 1
 		})
 	}
 
 	increaseQty = () => {
-		console.log("+");
 		this.setState({
 			qty: this.state.qty + 1
 		})
 	}
 
 	changeSize = (e) => {
-		console.log("Size!!!!!!!!!!!!!!!!!!",e.target.value);
+		console.log("Sneaker Size: ", e.target.value);
+		
 		this.setState({
-			size: e.target.value
+			size: e.target.value,
+			message: false
+		})
+	}
+
+	showMessage = () => {
+		this.setState({
+			message: true
 		})
 	}
 
 	render() {
 		const {name, category, price, brand, image, id} = this.props.sneaker
 		const images = require.context('../images/sneakers', true);
-
+		
 		return (
 			<div  className="sneaker-show">
 				<img className="sneaker-image-large" src={images(`./${brand}/${image}`)} alt=""/>
 				<div className="sneaker-ui">
+				{ this.state.message ? <div className="message"><p>Please select a size.</p></div> : null }
 					<img className="brand-logo" src={images(`./logos/${brand}_logo.png`)} alt={brand}/>
 					<div className="brand-corner">
 						<div className="price-section">
@@ -55,9 +63,22 @@ class SneakerShow extends Component {
 					<h2 className="float-me-left sneaker-name">{name}</h2>
 					<h3 className="ui-category">{category}</h3>
 					<QuantitySelector increaseQty={this.increaseQty} decreaseQty={this.decreaseQty} qty={this.state.qty}/>
-					<SizeSelector changeSize={this.changeSize}/>
+					<SizeSelector changeSize={this.changeSize} />
 
-					{localStorage.token ? <button onClick={() => this.props.addToOrder({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})} className="float-me-right add-to-cart">Add to Cart</button> : <Link className="login-to-buy" to="/login">Log In To Buy</Link>}
+					{localStorage.token ? 
+					<button onClick={() => {
+
+						this.state.size !== 0 && this.state.size !== "SIZE" ? 
+						this.props.addToOrder({quantity: this.state.qty, size: this.state.size, sneaker: this.props.sneaker})
+						: this.showMessage()
+						
+					
+					}}  
+
+					className="float-me-right add-to-cart">Add to Cart</button> 
+					: <Link className="login-to-buy" to="/login">Log In To Buy</Link>
+					
+					}
 
 
 

@@ -86,9 +86,9 @@ class TopNav extends Component {
 							<img src={images(`./user.png`)}/>
 						</div>
 						<div className="dropdown-content">
-							<Link to={`/profile`}>
+							{/* <Link to={`/profile`}>
 								<div>View Profile</div>
-							</Link>
+							</Link> */}
 
 							<Link to={`/orders`}>
 			    				<div>Order History</div>
