@@ -10,12 +10,14 @@ import {Redirect, withRouter} from 'react-router-dom'
 class Payment extends Component {
 	state = {
 		card: null,
-		orderSubmitted: false
+		orderSubmitted: false,
+		message: false
 	}
 
 	cardtype = (e,cardName) => {
 		this.setState({
-			card: cardName
+			card: cardName,
+			message: false
 		})
 	}
 
@@ -25,10 +27,26 @@ class Payment extends Component {
 			orderSubmitted: true
 		});
 
-		console.log("Your order has been submitted: ", this.props.orders[this.props.orders.length - 1].id);
-		let orderId = this.props.orders[this.props.orders.length - 1].id;
-		return this.props.makePurchase(orderId, cartTotal)
+		if (this.state.card === null) {
+			this.setState({
+				message: true
+			})
+		}
+
+
+		if (this.state.card !== null) {
+			this.setState({
+				message: false
+			})
+			let orderId = this.props.orders[this.props.orders.length - 1].id;
+			return this.props.makePurchase(orderId, cartTotal)
+		} 
+			
+		
+		
 	}
+
+
 	render() {
 		console.log("test: ", this.props.currentOrder);
 		if(this.props.currentOrder.length < 1) {
@@ -56,6 +74,7 @@ class Payment extends Component {
 				
 					<p><button type="submit" className="btn-su">Make Purchase</button></p>
 				</form>
+				{this.state.message ? <h3 className="please">Please select card type.</h3> : null}
 			</div>
 		)
 	}
