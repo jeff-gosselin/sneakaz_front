@@ -78,7 +78,7 @@ class TopNav extends Component {
 						</div>
 					</div>
 
-					<h3 className="rt-nav-icons">{this.props.currentShopper.username ? `Hi, ${this.props.currentShopper.username}!` : null}</h3>
+					<h3 className="rt-nav-icons">{this.props.currentShopper.username ? `Hi, ${this.props.currentShopper.username}!` : "Welcome!"}</h3>
 
 					<div className="dropdown-user">
 

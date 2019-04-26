@@ -6,6 +6,9 @@ import {Link} from 'react-router-dom';
 import {Redirect, withRouter} from 'react-router-dom';
 
 class Address extends Component {
+	state = {
+		sameAddress: false
+	}
 	
 	storeAddress = (e) => {
 		e.preventDefault();
@@ -13,6 +16,12 @@ class Address extends Component {
 		
 		localStorage.setItem('shippingAddress', `${e.target.shipStreet.value}, ${e.target.shipTown.value}`)
 		this.props.history.push('/payment');
+	}
+
+	changeAddressStatus = () => {
+		this.setState({
+			sameAddress: !this.state.sameAddress
+		})
 	}
 
 	render() {
@@ -26,12 +35,21 @@ class Address extends Component {
 					<h3 className="log-header">Enter Shipping Address:</h3>
 					<p><input name="shipStreet" type="text" placeholder="Street Address" required/></p>
 					<p><input name="shipTown" type="text" placeholder="Town, State, and Zipcode" required/></p>
-					<p><input id="chkbx" type="checkbox" /><span>Use shipping address as billing address</span></p>
+					<p><input id="chkbx" type="checkbox" onClick={this.changeAddressStatus} /><span>Use shipping address as billing address</span></p>
 					<br />
-					<h3 className="log-header">Enter Billing Address:</h3>
-					<p><input name="billStreet" type="text" placeholder="Street Address" required/></p>
-					<p><input name="Town" type="text" placeholder="Town, State, and Zipcode" required/></p>
+					{this.state.sameAddress ? null :
+					
+					<div>
+						<h3 className="log-header">Enter Billing Address:</h3>
+						<p><input name="billStreet" type="text" placeholder="Street Address" required/></p>
+						<p><input name="Town" type="text" placeholder="Town, State, and Zipcode" required/></p>
+						
+					</div>
+				
+					}
+					
 					<p><button className="btn-su" >Choose Payment Method</button></p>
+					
 				</form>
 			</div>
 		)
