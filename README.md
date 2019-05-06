@@ -1,69 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img alt="arcus logo" src="src/images/Arcuslogo.png" width="348px" height="75px">
 
-## Available Scripts
+A web-app that enables designers to quickly cycle through generated color palettes and make better design decisions.
 
-In the project directory, you can run:
+[Hosted on Heroku](https://arcus-color-palette.herokuapp.com/PaletteCreator)
 
-### `npm start`
+[Demo Video](https://www.youtube.com/watch?v=bGZpIQvYvWg)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Design Ideas
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+<img alt="arcus logo" src="src/images/Arcus Wheel Gif.gif" width="320px" height="200px">
 
-### `npm test`
+I wanted the UI to be clean and not distract from the colors in the palettes.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Color palettes are generated as the user manipulates diffrent sliders. All palettes have 5 diffrent colors. The first color in the pallet is the "key color" AKA the direct output of the sliders. Only 1-3 colors in each palette have a diffrent hue, the other colors only vary in saturation and lightness. The hue variations are based in color theory relationships(analogus, complementary, split complementary).
 
-### `npm run build`
+<img alt="arcus logo" src="src/images/ArcusMockupgif.gif" width="320px" height="200px">
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Recoloring mockups on a click is quick and easy solution for testing out diffrent color ideas.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+All of the mockups are SVGs and the fill color of their parts are changed through state in Arcus's Redux store. I've made five diffrent mockups that embody common graphic design visuals(a website, logo, buisness card, etc.).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Bulit With
 
-### `npm run eject`
+* [React](https://reactjs.org/) - web library used for building the interface
+* [Redux](https://redux.js.org/) - used to declaratively pass and manipulate reusable state to all components
+* [react-router](https://reacttraining.com/react-router/) - for page navigation
+* [react-responsive](https://www.npmjs.com/package/react-responsive) - for media queries / responsive design
+* [JSS](https://cssinjs.org/?v=v10.0.0-alpha.13) - to manipulate CSS attributes based on state
+* [React Circular Color](https://www.npmjs.com/package/react-circular-color) - used this hue slider
+* [Scalable Vector Graphics (SVGs)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) - for mockup images created in [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
+* [Ruby on Rails](https://rubyonrails.org/) - to save palettes for reuse in different mockups, in a **has_many :through** domain model
+* [postgreSQL](https://www.postgresql.org/) - as the database
+* [bcrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12) - to hash user passwords for real auth
+* [JSON Web Token (JWT)](https://rubygems.org/gems/jwt/versions/1.5.4) - for secure login storage
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Additional Notes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I'm planning on creating a native app and user uploaded mockups in the future.
+Named after the Roman goddess of rainbows.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# sneakaz_front
+[Backend repo](https://github.com/EvanPavley/arcus-backend)
