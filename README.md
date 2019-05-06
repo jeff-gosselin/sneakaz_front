@@ -2,8 +2,6 @@
 
 An ecommerce application where users can search for sneakers, add sneakers to their virtual shopping bag, make fake purchases, and keep track of their order history.
 
-[Hosted on Heroku](https://arcus-color-palette.herokuapp.com/PaletteCreator)
-
 [Demo Video](https://drive.google.com/file/d/1ej8uZ0-FywxCAmYDUmFVPnLyOltVdBbS/view)
 
 ## Purpose
