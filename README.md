@@ -15,7 +15,7 @@ The goal of building this app was to learn more about what was involved in creat
 * [React](https://reactjs.org/) - a javascript library used for the frontend development
 * [Redux](https://redux.js.org/) - used to declaratively pass and manipulate reusable state to all components
 * [react-router](https://reacttraining.com/react-router/) - for navigating the site.
-* [react-icon](https://www.npmjs.com/package/react-responsive) - for an icon or two
+* [react-icons](https://www.npmjs.com/package/react-icons) - for an icon or two
 * [Ruby on Rails](https://rubyonrails.org/) - used for the backend
 * [postgreSQL](https://www.postgresql.org/) - was the database used
 * [bcrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12) - to hash user passwords for real auth
