@@ -10,7 +10,7 @@ An ecommerce application where users can search for sneakers, add sneakers to th
 
 The goal of building this app was to learn more about what was involved in creating an ecommerce site, specifically an online shopping cart.
 
-## Bulit With
+## Built With
 
 * [React](https://reactjs.org/) - a javascript library used for the frontend development
 * [Redux](https://redux.js.org/) - used to declaratively pass and manipulate reusable state to all components
