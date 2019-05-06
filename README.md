@@ -4,7 +4,7 @@ An ecommerce application where users can search for sneakers, add sneakers to th
 
 [Hosted on Heroku](https://arcus-color-palette.herokuapp.com/PaletteCreator)
 
-[Demo Video](https://www.youtube.com/watch?v=bGZpIQvYvWg)
+[Demo Video](https://drive.google.com/file/d/1ej8uZ0-FywxCAmYDUmFVPnLyOltVdBbS/view)
 
 ## Purpose
 
